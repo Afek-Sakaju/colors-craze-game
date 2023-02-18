@@ -1,10 +1,16 @@
+body,
+html,
+#master {
+  height: 98%;
+  width: 98%;
+}
+
 body {
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* margin: 0 auto;
-  height: 90vh;
-  width: 90vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
