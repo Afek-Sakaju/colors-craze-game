@@ -1,0 +1,46 @@
+@import "./mixings.scss";
+
+.digit-container {
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  border: 5px rgba(0, 0, 0, 0.03) solid;
+  position: relative;
+}
+
+.d1Shape {
+  @include trapezoidTopBase;
+}
+
+.d2Shape {
+  @include trapezoidLeftBase;
+  top: 0;
+}
+
+.d3Shape {
+  @include trapezoidRightBase;
+  top: 0;
+  right: 0;
+}
+
+.d4Shape {
+  @include hexagon;
+  top: 42%;
+}
+
+.d5Shape {
+  @include trapezoidLeftBase;
+  bottom: 0;
+}
+
+.d6Shape {
+  @include trapezoidRightBase;
+  bottom: 0;
+  right: 0;
+}
+
+.d7Shape {
+  @include trapezoidBottomBase;
+  bottom: 0;
+}

@@ -26,7 +26,12 @@ body {
 }
 
 .midContainer {
-  border: 5px solid olive;
   height: 50%;
   width: 40%;
+}
+
+.clockContainer{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
 }

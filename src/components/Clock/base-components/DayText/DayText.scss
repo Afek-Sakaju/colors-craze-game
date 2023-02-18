@@ -1,0 +1,8 @@
+.dayText {
+  font-size: 53%;
+  font-weight: 600;
+  color: black;
+  &.passive {
+    opacity: 0.3;
+  }
+}
