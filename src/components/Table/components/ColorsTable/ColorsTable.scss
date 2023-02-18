@@ -1,0 +1,13 @@
+@import "../../utils/variables.scss";
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: $main-border-radius;
+  overflow: hidden;
+}

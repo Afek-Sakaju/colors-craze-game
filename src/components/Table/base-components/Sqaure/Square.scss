@@ -1,0 +1,10 @@
+@import "../../utils/variables.scss";
+
+.square {
+  &:hover {
+    cursor: pointer;
+  }
+  flex: 1 1 auto;
+  border-radius: $main-border-radius;
+  min-height: 95%;
+}
