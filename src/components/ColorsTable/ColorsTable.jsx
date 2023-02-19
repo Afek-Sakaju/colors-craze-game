@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./ColorsTable.scss";
-import {
-  createMatrix,
-  generateRandomColor,
-} from "../../utils";
-import { Square } from "../../base-components";
+import { createMatrix, generateRandomColor } from "./utils";
+import { Square } from "./base-components";
 
 export function ColorsTable({
   backgroundColor,

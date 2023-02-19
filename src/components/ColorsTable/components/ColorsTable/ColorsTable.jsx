@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 
 import "./ColorsTable.scss";
 import {
-  generateUniqueId,
   createMatrix,
   generateRandomColor,
 } from "../../utils";
-import { Row } from "../";
+import { Square } from "../../base-components";
 
 export function ColorsTable({
   backgroundColor,
@@ -22,25 +21,25 @@ export function ColorsTable({
     colorGenerateFunc: generateRandomColor,
     colorsList: tableColorList,
   });
-  const [colors, setColor] = useState(statesMatrix);
+  const [colorsMatrix, setColor] = useState(statesMatrix);
 
-  const onClick = ({ i, j }) => {
-    if (i !== undefined && j !== undefined) {
-      let generatedColor = generateRandomColor(tableColorList);
-      const shouldRegenerate =
-        !allowRepeatedColors && tableColorList && tableColorList.length > 1;
+  const onClick = (id) => {
+    const [i, j] = id.split("~");
+    if (i === undefined || j === undefined) return;
 
-      setColor?.((statesMatrix) => {
-        // if there is one color and not allowed repeat, the game will be stuck
-        if (shouldRegenerate) {
-          while (statesMatrix[i][j] === generatedColor) {
-            generatedColor = generateRandomColor(tableColorList);
-          }
-        }
-        statesMatrix[i][j] = generatedColor;
-        return [...statesMatrix];
-      });
-    }
+    const prevColor = colorsMatrix[i][j];
+    let currentColor,
+      shouldRegenerate = !allowRepeatedColors;
+
+    do {
+      currentColor = generateRandomColor(tableColorList);
+      shouldRegenerate = currentColor === prevColor && shouldRegenerate;
+    } while (shouldRegenerate);
+
+    setColor?.((statesMatrix) => {
+      statesMatrix[i][j] = currentColor;
+      return [...statesMatrix];
+    });
   };
 
   return (
@@ -48,15 +47,19 @@ export function ColorsTable({
       className="tableContainer"
       style={{ backgroundColor: backgroundColor }}
     >
-      {statesMatrix.map((_row, i) => (
-        <Row
-          colors={colors}
-          tableColorList={tableColorList}
-          onClick={onClick}
-          allowRepeatedColors={allowRepeatedColors}
-          i={i}
-          key={generateUniqueId()}
-        />
+      {statesMatrix.map((_, i) => (
+        <div className="row" key={i}>
+          {colorsMatrix[i].map((color, j) => {
+            return (
+              <Square
+                id={`${i}~${j}`}
+                color={color}
+                onClick={onClick}
+                key={`${i}~${j}`}
+              />
+            );
+          })}
+        </div>
       ))}
     </div>
   );
@@ -74,6 +77,6 @@ ColorsTable.defaultProps = {
   backgroundColor: "white",
   rows: 3,
   columns: 4,
-  allowRepeatedColors: false,
+  allowRepeatedColors: true,
   tableColorList: ["red", "green", "blue"],
 };
