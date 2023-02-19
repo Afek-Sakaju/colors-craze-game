@@ -32,7 +32,6 @@ export function ManagedColorsTable({
       colorsList: tableColorList,
     });
 
-    console.log(nextColor);
     setColor?.((statesMatrix) => {
       statesMatrix[i][j] = nextColor;
       return [...statesMatrix];

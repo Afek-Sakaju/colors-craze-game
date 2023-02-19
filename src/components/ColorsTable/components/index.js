@@ -1,1 +1,1 @@
-export * from "./ColorsTable/ColorsTable";
+export * from "./ManagedColorsTable/ManagedColorsTable";
