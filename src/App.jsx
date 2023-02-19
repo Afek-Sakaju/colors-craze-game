@@ -1,11 +1,11 @@
 import React from "react";
-import { Clock, ColorsTable } from "./components";
+import { Clock, ManagedColorsTable } from "./components";
 
 function App() {
   return (
     <div className="mainContainer">
       <div className="midContainer">
-        <ColorsTable allowRepeatedColors={false} />
+        <ManagedColorsTable />
         <div className="clockContainer">
           <Clock />
         </div>

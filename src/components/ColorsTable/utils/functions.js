@@ -1,19 +1,41 @@
 export const generateRandomColor = (list = ["red", "blue", "green"]) => {
   const randomNumber = Math.floor(Math.random() * list.length);
+
   return list[randomNumber];
 };
 
 export const createMatrix = ({
   rows,
   columns,
-  colorGenerateFunc = null,
   colorsList = null,
   singleColor = "black",
 }) => {
-  const shouldGenerateColor = colorGenerateFunc && colorsList;
+  const shouldGenerateColor = colorsList;
   return Array.from({ length: rows }, () =>
     Array.from({ length: columns }, () =>
-      shouldGenerateColor ? colorGenerateFunc(colorsList) : singleColor
+      shouldGenerateColor ? generateRandomColor(colorsList) : singleColor
     )
   );
+};
+
+export const validateIndexes = (indexesArray) => {
+  indexesArray.forEach((e) => {
+    if (e === undefined) return;
+  });
+};
+
+export const generateNewSquareColor = ({
+  prevColor,
+  allowRepeatedColors,
+  colorsList,
+}) => {
+  let currentColor,
+    shouldRegenerate = !allowRepeatedColors;
+
+  do {
+    currentColor = generateRandomColor(colorsList);
+    shouldRegenerate = currentColor === prevColor && shouldRegenerate;
+  } while (shouldRegenerate);
+
+  return currentColor;
 };
