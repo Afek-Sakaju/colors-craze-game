@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="mainContainer">
       <div className="midContainer">
-        <ColorsTable allowRepeatedColors/>
+        <ColorsTable allowRepeatedColors={false} />
         <div className="clockContainer">
           <Clock />
         </div>
