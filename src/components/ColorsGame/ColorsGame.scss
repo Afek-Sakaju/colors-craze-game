@@ -1,0 +1,31 @@
+.main-container {
+  height: 100vh;
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 3px red solid;
+}
+
+.mid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  align-items: center;
+  border: 3px rgb(157, 254, 0) solid;
+}
+
+.mid-table-container {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 100px;
+}
+
+.clock-container {
+  display: flex;
+  border: 3px green solid;
+  margin-top: 100px;
+}

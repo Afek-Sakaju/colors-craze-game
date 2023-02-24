@@ -1,0 +1,23 @@
+$circle-radius: 100px;
+$circumference: 2 * 3.14 * $circle-radius; // "circumference" = "girth"
+
+@keyframes stroke-animation {
+  to {
+    stroke-dashoffset: $circumference;
+  }
+}
+
+.stopper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  height: 250px;
+  width: 250px;
+}
+
+.stopper-circle {
+  stroke-dasharray: $circumference;
+  stroke-dashoffset: 0;
+}

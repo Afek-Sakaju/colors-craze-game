@@ -3,6 +3,9 @@ html,
 #master {
   height: 98%;
   width: 98%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 body {
@@ -13,25 +16,4 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.mainContainer {
-  height: 95vh;
-  width: 95vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px red solid;
-  flex-direction: column;
-}
-
-.midContainer {
-  height: 50%;
-  width: 40%;
-}
-
-.clockContainer{
-  margin: 10px;
-  display: flex;
-  justify-content: center;
 }
