@@ -35,8 +35,8 @@ export const AdjustableSize = (props) => {
     <div
       style={{
         ...dayTextBasicStyle,
-        width: `${props.width}px` ?? "500px",
-        height: `${props.height}px` ?? "300px",
+        width: `${props.width}px`,
+        height: `${props.height}px`,
       }}
     >
       <DayText label={"Thursday"} />
@@ -44,8 +44,14 @@ export const AdjustableSize = (props) => {
   );
 };
 AdjustableSize.argTypes = {
-  width: { control: { type: "number", min: 50, max: 3000, step: 50 } },
-  height: { control: { type: "number", min: 50, max: 3000, step: 50 } },
+  width: {
+    control: { type: "number", min: 50, max: 3000, step: 50 },
+    defaultValue: 500,
+  },
+  height: {
+    control: { type: "number", min: 50, max: 3000, step: 50 },
+    defaultValue: 300,
+  },
 };
 
 const Template = (args) => <DayText {...args} />;

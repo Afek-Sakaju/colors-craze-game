@@ -1,73 +1,83 @@
 @import "../../utils/variables.scss";
 
-.clockComponentContainer {
-  border: 10px rgba(128, 128, 128, 0.5) solid;
-  border-radius: 30px;
-  box-shadow: 0 0 0 3px black;
-  height: 130px;
-  width: 250px;
-  &.small {
-    height: 100px;
-    width: 150px;
+.clock-component-container {
+  border: 2px rgba(128, 128, 128, 0.5) solid;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -1px 5px gray;
+  overflow: hidden;
+}
+
+.clock-small {
+  .component-container {
+    padding: 2px 0 0 0;
+  }
+
+  .day-text {
+    flex: 1 1 auto;
+    width: max-content;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .ampm-container {
+    font-size: 12px;
+
+    .ampm-text {
+      right: 31px;
+
+      &:last-child {
+        right: 3px;
+      }
+    }
+  }
+
+  .two-digits:after {
+    font-size: 2em;
+    right: -8px;
   }
 }
 
-.componentContainer {
+.component-container {
+  padding: 5px 0 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
   background-color: rgb(243, 243, 243);
   border: 5px rgba(243, 243, 243) solid;
-  border-radius: 25px;
   height: 100%;
   width: 100%;
-  gap: 5%;
+  gap: 5px;
 }
 
-.ampmContainer {
+.ampm-container {
   position: relative;
   box-sizing: border-box;
-  padding-top: 15px;
-  font-size: 18px;
-  height: 10%;
+  font-size: 14px;
   width: 100%;
-  &.small {
-    padding-top: 8px;
-    font-size: 13px;
-  }
 }
 
-.ampmText {
+.ampm-text {
   font-weight: 900;
   position: absolute;
   right: 40px;
-  top: -5px;
+  top: -3px;
 
   &:last-child {
-    top: -5px;
     right: 5px;
   }
-  &.small {
-    right: 28px;
-    top: -5px;
-  }
-  &:last-child.small {
-    right: 3px;
-  }
+
   &.passive {
     opacity: 0.3;
   }
 }
 
-.daysContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  height: 20%;
+.days-container {
   width: 100%;
-  gap: 5%;
+}
+
+.digits-container {
+  height: 55%;
+  width: 80%;
 }

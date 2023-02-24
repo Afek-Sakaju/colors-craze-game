@@ -58,4 +58,5 @@ Custom.decorators = [
 ];
 Custom.argTypes = {
   size: { control: "inline-radio", options: ["normal", "small"] },
+  timestamp: { control: false },
 };

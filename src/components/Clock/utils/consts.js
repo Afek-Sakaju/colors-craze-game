@@ -14,3 +14,10 @@ export const activeLinesByNumber = {
   8: [1, 2, 3, 4, 5, 6, 7],
   9: [1, 2, 3, 4, 6, 7],
 };
+
+export const timeZones = [
+  { name: "Israel", diff: 0, isEarly: true },
+  { name: "United-States", diff: 5, isEarly: true },
+  { name: "England", diff: 2, isEarly: true },
+  { name: "Japan", diff: 5, isEarly: false },
+];

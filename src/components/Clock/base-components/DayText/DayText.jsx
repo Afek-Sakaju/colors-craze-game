@@ -4,7 +4,7 @@ import "./DayText.scss";
 
 export function DayText({ label, currentDay }) {
   const isCurrentDay = !(label.localeCompare(currentDay, 'en', { sensitivity: 'base' }));
-  const className =  isCurrentDay ? "dayText" : "dayText passive";
+  const className =  isCurrentDay ? "day-text" : "day-text passive";
   
   return <div className={className}>{label}</div>;
 }

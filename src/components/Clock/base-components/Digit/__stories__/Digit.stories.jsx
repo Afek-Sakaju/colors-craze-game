@@ -47,8 +47,8 @@ export const AdjustableSize = (props) => {
         justifyContent: "center",
         alignItems: "center",
         border: "3px red solid",
-        width: `${props.width}px` ?? "50px",
-        height: `${props.height}px` ?? "50px",
+        width: `${props.width}px`,
+        height: `${props.height}px`,
       }}
     >
       <Digit value={6} />
@@ -56,13 +56,15 @@ export const AdjustableSize = (props) => {
   );
 };
 AdjustableSize.argTypes = {
-  width: { control: { type: "number", min: 20, max: 3000, step: 30 } },
-  height: { control: { type: "number", min: 30, max: 3000, step: 30 } },
+  width: {
+    control: { type: "number", min: 20, max: 3000, step: 30 },
+    defaultValue: 50,
+  },
+  height: {
+    control: { type: "number", min: 30, max: 3000, step: 30 },
+    defaultValue: 50,
+  },
   value: { control: false },
-};
-AdjustableSize.args = {
-  width: 100,
-  height: 100,
 };
 
 export const Custom = Template.bind({});

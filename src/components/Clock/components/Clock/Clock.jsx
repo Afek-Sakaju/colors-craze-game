@@ -1,49 +1,50 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { ManagedDigitsClock, DaysGroup } from "../index";
-import { getCurrentDateFormat } from "../../utils";
+
+import { ManagedDigitsClock, DaysGroup } from "../";
+import { AmpmText } from "../../base-components";
+import { getDateFormat } from "../../utils";
 import "./Clock.scss";
 
-export function Clock({ size }) {
+export function Clock({ size, timestamp }) {
   const [ampmState, setAmPmState] = useState("AM");
-  const [localeTime, onTimeChange] = useState(getCurrentDateFormat());
-  const [currentDay, setCurrentDay] = useState(localeTime.split(" ")[0]);
+  const [localeTime, onTimeChange] = useState(getDateFormat(timestamp));
+  const [currentDay, setCurrentDay] = useState(localeTime.day);
 
-  const sizeClassAddons = size === "small" ? "small" : "";
+  let sizeClassname;
+  let sizeObj;
+  switch (size) {
+    case "small":
+      sizeClassname = "clock-small";
+      sizeObj = { width: "200px", height: "80px" };
+      break;
+    default:
+      sizeClassname = "clock-normal";
+      sizeObj = { width: "250px", height: "100px" };
+  }
 
   return (
-    <div className={`clockComponentContainer ${sizeClassAddons}`}>
-      <div className="componentContainer">
-        <div className="daysContainer">
+    <div
+      className={`clock-component-container ${sizeClassname}`}
+      style={sizeObj}
+    >
+      <div className="component-container">
+        <div className="days-container">
           <DaysGroup currentDay={currentDay} />
         </div>
-        <ManagedDigitsClock
-          updateAmPm={setAmPmState}
-          localeTime={localeTime}
-          onTimeChange={onTimeChange}
-          currentDay={currentDay}
-          onDayChange={setCurrentDay}
-          useInterval={true}
-        />
-        <div className={`ampmContainer ${sizeClassAddons}`}>
-          <div
-            className={
-              ampmState === "AM"
-                ? `ampmText ${sizeClassAddons}`
-                : `ampmText ${sizeClassAddons} passive`
-            }
-          >
-            AM
-          </div>
-          <div
-            className={
-              ampmState === "PM"
-                ? `ampmText ${sizeClassAddons}`
-                : `ampmText ${sizeClassAddons} passive`
-            }
-          >
-            PM
-          </div>
+        <div className="digits-container">
+          <ManagedDigitsClock
+            updateAmPm={setAmPmState}
+            localeTime={localeTime}
+            onTimeChange={onTimeChange}
+            currentDay={currentDay}
+            onDayChange={setCurrentDay}
+            useInterval={true}
+          />
+        </div>
+        <div className="ampm-container">
+          <AmpmText ampmState={ampmState} label={"AM"} />
+          <AmpmText ampmState={ampmState} label={"PM"} />
         </div>
       </div>
     </div>
@@ -52,8 +53,10 @@ export function Clock({ size }) {
 
 Clock.propTypes = {
   size: PropTypes.string,
+  timestamp: PropTypes.number,
 };
 
 Clock.defaultProps = {
   size: "normal",
+  timestamp: undefined,
 };

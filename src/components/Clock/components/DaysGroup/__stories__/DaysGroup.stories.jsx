@@ -62,8 +62,14 @@ export const AdjustSize = (props) => {
   );
 };
 AdjustSize.argTypes = {
-  width: { control: { type: "number", min: 50, max: 4000, step: 50 } },
-  height: { control: { type: "number", min: 50, max: 3000, step: 50 } },
+  width: {
+    control: { type: "number", min: 50, max: 4000, step: 50 },
+    defaultValue: 300,
+  },
+  height: {
+    control: { type: "number", min: 50, max: 3000, step: 50 },
+    defaultValue: 100,
+  },
   currentDay: { control: false },
 };
 

@@ -5,42 +5,42 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  border: 5px rgba(0, 0, 0, 0.03) solid;
+  border: 4px transparent solid;
   position: relative;
 }
 
-.d1Shape {
-  @include trapezoidTopBase;
+.d1-shape {
+  @include trapezoid-top-base;
 }
 
-.d2Shape {
-  @include trapezoidLeftBase;
+.d2-shape {
+  @include trapezoid-left-base;
   top: 0;
 }
 
-.d3Shape {
-  @include trapezoidRightBase;
+.d3-shape {
+  @include trapezoid-right-base;
   top: 0;
   right: 0;
 }
 
-.d4Shape {
+.d4-shape {
   @include hexagon;
   top: 42%;
 }
 
-.d5Shape {
-  @include trapezoidLeftBase;
+.d5-shape {
+  @include trapezoid-left-base;
   bottom: 0;
 }
 
-.d6Shape {
-  @include trapezoidRightBase;
+.d6-shape {
+  @include trapezoid-right-base;
   bottom: 0;
   right: 0;
 }
 
-.d7Shape {
-  @include trapezoidBottomBase;
+.d7-shape {
+  @include trapezoid-bottom-base;
   bottom: 0;
 }

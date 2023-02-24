@@ -11,7 +11,7 @@ export function DigitsClock({ time }) {
   ss = ss.padStart(2, "0");
 
   return (
-    <div className="numbers-container">
+    <div className="numbers-container digit-small">
       <div className="two-digits">
         {hh.split("").map((digit, index) => (
           <Digit value={+digit} key={`hh ${index}`} />

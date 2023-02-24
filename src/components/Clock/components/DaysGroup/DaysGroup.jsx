@@ -1,13 +1,21 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { daysArray } from "../../utils/consts";
 import { DayText } from "../../base-components";
+import "./DaysGroup.scss";
 
 export function DaysGroup({ currentDay }) {
-  return daysArray.map((day, index) => {
-    return (
-      <DayText label={day.toUpperCase()} currentDay={currentDay} key={index} />
-    );
-  });
+  return (
+    <div className="days-group-container">
+      {daysArray.map((day, index) => (
+        <DayText
+          label={day.toUpperCase()}
+          currentDay={currentDay}
+          key={index}
+        />
+      ))}
+    </div>
+  );
 }
 
 DaysGroup.propTypes = {

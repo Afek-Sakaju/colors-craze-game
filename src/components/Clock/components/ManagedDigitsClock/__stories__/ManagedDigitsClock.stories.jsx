@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ManagedDigitsClock } from "../ManagedDigitsClock";
-import { getCurrentDateFormat } from "../../../utils";
+import { getDateFormat } from "../../../utils";
 
 export default {
   title: "components/ManagedDigitsClock",
@@ -44,11 +44,9 @@ export const Default = () => {
   );
 };
 
-Default.args = {};
-
 export const useInterval = () => {
   const [useInterval, setUseInterval] = useState(false);
-  const [localeTime, onTimeChange] = useState(getCurrentDateFormat());
+  const [localeTime, onTimeChange] = useState(getDateFormat());
 
   return (
     <div
@@ -83,8 +81,8 @@ export const Custom = (props) => {
         justifyContent: "center",
         alignItems: "center",
         border: "red solid 3px",
-        height: `${props.height ?? 80}px`,
-        width: `${props.width ?? 150}px`,
+        height: `${props.height}px`,
+        width: `${props.width}px`,
       }}
     >
       <ManagedDigitsClock />
@@ -92,8 +90,14 @@ export const Custom = (props) => {
   );
 };
 Custom.argTypes = {
-  height: { control: { type: "number", min: 50, max: 2000, step: 50 } },
-  width: { control: { type: "number", min: 100, max: 3000, step: 50 } },
+  height: {
+    control: { type: "number", min: 50, max: 2000, step: 50 },
+    defaultValue: 150,
+  },
+  width: {
+    control: { type: "number", min: 100, max: 3000, step: 50 },
+    defaultValue: 300,
+  },
   useInterval: { control: false },
   currentDay: { control: false },
   localeTime: { control: false },

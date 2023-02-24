@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { DigitsClock } from "../../base-components/DigitsClock/DigitsClock";
-import { getCurrentDateFormat } from "../../utils";
+import { getDateFormat } from "../../utils";
 
 export function ManagedDigitsClock({
   updateAmPm,
@@ -11,15 +11,14 @@ export function ManagedDigitsClock({
   onDayChange,
   useInterval,
 }) {
-  const [day, time, ampm] = localeTime.split(" ");
+  const { day, time, ampm } = localeTime;
 
   useEffect(() => {
     const timerInterval =
       useInterval &&
       setInterval(() => {
         onTimeChange?.((date) => {
-          date = getCurrentDateFormat();
-          return date;
+          return getDateFormat(date.timestamp + 1000);
         });
       }, 1000);
 
@@ -41,7 +40,11 @@ export function ManagedDigitsClock({
 
 ManagedDigitsClock.propTypes = {
   updateAmPm: PropTypes.func,
-  localeTime: PropTypes.string,
+  localeTime: PropTypes.shape({
+    day: PropTypes.string,
+    time: PropTypes.string,
+    ampm: PropTypes.string,
+  }),
   onTimeChange: PropTypes.func,
   currentDay: PropTypes.string,
   onDayChange: PropTypes.func,
@@ -54,5 +57,5 @@ ManagedDigitsClock.defaultProps = {
   currentDay: "noDay",
   onDayChange: undefined,
   useInterval: true,
-  localeTime: getCurrentDateFormat(),
+  localeTime: 0,
 };
