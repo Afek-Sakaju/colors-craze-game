@@ -7,6 +7,7 @@ import {
   validateIndexes,
   generateNewSquareColor,
 } from "../../utils";
+import { isGameOver } from "../../../../utils";
 
 export function ManagedColorsTable({
   backgroundColor,
@@ -14,6 +15,8 @@ export function ManagedColorsTable({
   rows,
   allowRepeatedColors,
   tableColorList,
+  setGameOver,
+  enemyColors,
 }) {
   const statesMatrix = createMatrix({
     rows,
@@ -36,6 +39,8 @@ export function ManagedColorsTable({
       statesMatrix[i][j] = nextColor;
       return [...statesMatrix];
     });
+
+    if (isGameOver(statesMatrix, enemyColors, setGameOver)) setGameOver?.(true);
   };
 
   return (
@@ -53,6 +58,8 @@ ManagedColorsTable.propTypes = {
   columns: PropTypes.number,
   allowRepeatedColors: PropTypes.bool,
   tableColorList: PropTypes.array,
+  setGameOver: PropTypes.func,
+  enemyColors: PropTypes.array,
 };
 
 ManagedColorsTable.defaultProps = {
@@ -61,4 +68,6 @@ ManagedColorsTable.defaultProps = {
   columns: 4,
   allowRepeatedColors: true,
   tableColorList: ["red", "green", "blue"],
+  setGameOver: undefined,
+  enemyColors: undefined,
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 // for some unkown reason that should be fixed, i can't import
@@ -7,14 +7,17 @@ import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-import { generateRandomColor } from "../ColorsTable/utils";
+import {  } from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
   const [enemyColors, setEnemies] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
+  const [colorsListState, setColorsList] = useState(colorsList);
 
+  const rebuildGame = useCallback((level) => {});
   useEffect(() => {
-    setEnemies(() => [generateRandomColor(colorsList)]);
+    setColorsList()
   }, []);
 
   return (
@@ -23,7 +26,11 @@ export function ColorsGame({ colorsList }) {
       <div className="mid-container">
         <GameQuestText enemyColors={enemyColors} />
         <div className="mid-table-container">
-          <ManagedColorsTable tableColorList={colorsList} />
+          <ManagedColorsTable
+            tableColorList={colorsList}
+            setGameOver={setGameOver}
+            enemyColors={enemyColors}
+          />
         </div>
         <Clock />
       </div>
@@ -33,11 +40,9 @@ export function ColorsGame({ colorsList }) {
 }
 
 ColorsGame.propTypes = {
-  level: PropTypes.number,
   colorsList: PropTypes.array,
 };
 
 ColorsGame.defaultProps = {
-  level: 1,
   colorsList: undefined,
 };
