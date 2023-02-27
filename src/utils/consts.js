@@ -1,32 +1,29 @@
 import { generateEnemyColors } from "./functions";
 
-export const colorsByDifficulty = {
-  easy: ["green", "blue", "red", "grey"],
-  medium: ["green", "blue", "red", "grey", "black", "gold"],
-  hard: [
-    "green",
-    "blue",
-    "red",
-    "grey",
-    "black",
-    "gold",
-    "purple",
-    "cyan",
-    "lime",
-    "pink",
-  ],
-};
+export const colorsList = [
+  "green",
+  "blue",
+  "red",
+  "grey",
+  "black",
+  "gold",
+  "purple",
+  "cyan",
+  "lime",
+  "pink",
+];
 
 export const propertiesByLevel = {
   1: {
-    colorsTable: colorsByDifficulty.easy,
+    // write function to randomise colors from the colorsList (the more colors the easier)
+    colorsTable: colorsList.slice(0),
     enemyColors: generateEnemyColors(1),
     rows: 3,
     cols: 4,
     countDownSeconds: 200,
   },
   2: {
-    colorsTable: colorsByDifficulty.easy,
+    colorsTable: colorsList.slice(0, 5),
     enemyColors: generateEnemyColors(1),
     rows: 4,
     cols: 4,

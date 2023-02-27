@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-export function TimeText({ size, totalSeconds }) {
+export function TimeText({ size, totalSeconds, cb, shouldStop }) {
   const [time, setTime] = useState(totalSeconds);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime((t) => t - 1);
-    }, 1000);
-
-    const timeoutId = setTimeout(() => {
-      clearInterval(intervalId);
-    }, (time ?? 0) * 1000);
+    const intervalId =
+      !shouldStop &&
+      setInterval(() => {
+        setTime((seconds) => {
+          const updatedSeconds = seconds - 1;
+          if (updatedSeconds <= 0) {
+            cb?.();
+            clearInterval(intervalId);
+          }
+          return updatedSeconds;
+        });
+      }, 1000);
 
     return () => {
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
+      intervalId && clearInterval(intervalId);
     };
-  });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shouldStop]);
 
   const hours = `${parseInt(time / 60 / 60)}`.padStart(2, "0");
   const minutes = `${parseInt((time / 60) % 60)}`.padStart(2, "0");

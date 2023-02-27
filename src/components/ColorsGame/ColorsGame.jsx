@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-// for some unkown reason that should be fixed, i can't import
-// files from the index.js so iv'e imported each cmp seperated
 import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-import {  } from "../../utils";
+//import {  } from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
@@ -17,12 +15,17 @@ export function ColorsGame({ colorsList }) {
 
   const rebuildGame = useCallback((level) => {});
   useEffect(() => {
-    setColorsList()
+    setColorsList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="main-container">
-      <Stopper totalSeconds={200} />
+      <Stopper
+        totalSeconds={200}
+        onDone={() => setGameOver(true)}
+        shouldStop={gameOver}
+      />
       <div className="mid-container">
         <GameQuestText enemyColors={enemyColors} />
         <div className="mid-table-container">
@@ -34,7 +37,7 @@ export function ColorsGame({ colorsList }) {
         </div>
         <Clock />
       </div>
-      <Stopper totalSeconds={200} />
+      <Stopper totalSeconds={200} shouldStop={gameOver} />
     </div>
   );
 }

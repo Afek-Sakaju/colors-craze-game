@@ -11,6 +11,8 @@ export function Stopper({
   totalSeconds,
   remainColor,
   elapsedColor,
+  onDone,
+  shouldStop,
 }) {
   if (totalSeconds < MINIMUM_TIME_LIMIT) totalSeconds = MINIMUM_TIME_LIMIT;
   else if (totalSeconds > MAXIMUM_TIME_LIMIT) totalSeconds = MAXIMUM_TIME_LIMIT;
@@ -41,7 +43,12 @@ export function Stopper({
           }}
         />
       </g>
-      <TimeText size={radius / 2.2} totalSeconds={totalSeconds} />
+      <TimeText
+        size={radius / 2.2}
+        totalSeconds={totalSeconds}
+        cb={onDone}
+        shouldStop={shouldStop}
+      />
     </svg>
   );
 }
