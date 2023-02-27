@@ -5,7 +5,7 @@ import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-//import {  } from "../../utils";
+// import {  } from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
