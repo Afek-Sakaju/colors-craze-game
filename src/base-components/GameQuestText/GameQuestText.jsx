@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import { getRandomNumber } from "../../utils";
 import "./GameQuestText.scss";
 
-export function GameQuestText({ enemyColors }) {
+export function GameQuestText({ level, enemyColors }) {
   const lastIndex = enemyColors.length - 1;
-  
+
   return (
     <span className="game-quest-text">
-      Clear all blocks:
+      Level: {level} | Clear all blocks:
       {enemyColors?.map((color, i) => {
         return (
           <span key={getRandomNumber()}>

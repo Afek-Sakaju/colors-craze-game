@@ -19,6 +19,9 @@ export const createMatrix = ({
 };
 
 export const validateIndexes = (indexesArray) => {
+  // recreate 
+  const isInvalid = false;
+  
   indexesArray.forEach((e) => {
     if (e === undefined) return;
   });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { ColorsTable } from "../../base-components";
@@ -7,7 +7,7 @@ import {
   validateIndexes,
   generateNewSquareColor,
 } from "../../utils";
-import { isGameOver } from "../../../../utils";
+import { countColorsInMatrix } from "../../../../utils";
 
 export function ManagedColorsTable({
   backgroundColor,
@@ -15,8 +15,7 @@ export function ManagedColorsTable({
   rows,
   allowRepeatedColors,
   tableColorList,
-  setGameOver,
-  enemyColors,
+  onChange,
 }) {
   const statesMatrix = createMatrix({
     rows,
@@ -24,23 +23,29 @@ export function ManagedColorsTable({
     colorsList: tableColorList,
   });
   const [colorsMatrix, setColor] = useState(statesMatrix);
+  //change name to setColorsMatrix
+
+  useEffect(() => {
+    const colorsState = countColorsInMatrix(statesMatrix);
+    onChange?.(colorsState);
+  }, []);
 
   const onClick = (id) => {
     const [i, j] = id.split("~");
-    validateIndexes([i, j]);
+    //validateIndexes([i, j]); // recreate this
 
-    const nextColor = generateNewSquareColor({
-      prevColor: colorsMatrix[i][j],
-      allowRepeatedColors,
-      colorsList: tableColorList,
+    setColor?.((mat) => {
+      const nextColor = generateNewSquareColor({
+        prevColor: mat[i][j],
+        allowRepeatedColors,
+        colorsList: tableColorList,
+      });
+
+      mat[i][j] = nextColor;
+      const colorsState = countColorsInMatrix(mat);
+      onChange?.(colorsState);
+      return [...mat];
     });
-
-    setColor?.((statesMatrix) => {
-      statesMatrix[i][j] = nextColor;
-      return [...statesMatrix];
-    });
-
-    if (isGameOver(statesMatrix, enemyColors, setGameOver)) setGameOver?.(true);
   };
 
   return (

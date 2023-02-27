@@ -6,53 +6,70 @@ import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-import { getPropertiesByLevel } from "../../utils";
+import { getPropertiesByLevel, randomiseColorsFromList } from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
-  const [enemyColors, setEnemies] = useState([]);
   const [gameOver, setGameOver] = useState(false);
-  const [properties, setProperties] = useState(false);
-  const [colorsListState, setColorsList] = useState(colorsList);
-  const [countdownSeconds, setCountdownSeconds] = useState(500);
-
-  const level = useRef(1);
-  const rows = useRef(0);
-  const cols = useRef(0);
+  const [level, setLevel] = useState(1);
+  const [enemyColors, setEnemyColors] = useState([]);
+  const properties = getPropertiesByLevel(level, colorsList);
+  const prevLevel = useRef(level);
 
   useEffect(() => {
-    setProperties(getPropertiesByLevel(level.current, colorsListState));
+    setGameOver(false);
   }, [level]);
 
-  useEffect(() => {
-    rows.current = properties.rows;
-    cols.current = properties.cols;
-    setColorsList(properties.colors);
-    setEnemies(properties.enemyColors);
-    setCountdownSeconds(properties.countDownSeconds);
-  }, [properties]);
-
-  return (
+  return level ? (
     <div className="main-container">
       <Stopper
-        totalSeconds={countdownSeconds}
-        onDone={() => setGameOver(true)}
+        totalSeconds={properties.countdownSeconds}
+        onDone={() => {
+          setLevel(0);
+          setEnemyColors([]);
+          setTimeout(() => setLevel(1));
+          setGameOver(true);
+        }}
         shouldStop={gameOver}
       />
       <div className="mid-container">
-        <GameQuestText enemyColors={enemyColors} />
+        <GameQuestText level={level} enemyColors={enemyColors} />
         <div className="mid-table-container">
           <ManagedColorsTable
-            tableColorList={colorsListState}
-            setGameOver={setGameOver}
-            enemyColors={enemyColors}
+            tableColorList={properties.colors}
+            onChange={(colorsState) => {
+              if (enemyColors.length === 0) {
+                setEnemyColors(
+                  randomiseColorsFromList(
+                    properties.enemyColorsCount,
+                    Object.keys(colorsState)
+                  )
+                );
+              } else {
+                const totalEnemyRemaining = enemyColors.reduce(
+                  (total, c) => total + (colorsState[c] ?? 0),
+                  0
+                );
+                if (totalEnemyRemaining === 0) {
+                  setLevel(0);
+                  setEnemyColors([]);
+                  setTimeout(() => setLevel(++prevLevel.current));
+                  setGameOver(true);
+                }
+              }
+            }}
+            rows={properties.rows}
+            columns={properties.cols}
           />
         </div>
         <Clock />
       </div>
-      <Stopper totalSeconds={countdownSeconds} shouldStop={gameOver} />
+      <Stopper
+        totalSeconds={properties.countdownSeconds}
+        shouldStop={gameOver}
+      />
     </div>
-  );
+  ) : null;
 }
 
 ColorsGame.propTypes = {
