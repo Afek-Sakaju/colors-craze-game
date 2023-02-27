@@ -1,28 +1,41 @@
-import React, { useCallback, useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
 import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-// import {  } from "../../utils";
+import { getPropertiesByLevel } from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
   const [enemyColors, setEnemies] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [properties, setProperties] = useState(false);
   const [colorsListState, setColorsList] = useState(colorsList);
+  const [countdownSeconds, setCountdownSeconds] = useState(500);
 
-  const rebuildGame = useCallback((level) => {});
+  const level = useRef(1);
+  const rows = useRef(0);
+  const cols = useRef(0);
+
   useEffect(() => {
-    setColorsList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    setProperties(getPropertiesByLevel(level.current, colorsListState));
+  }, [level]);
+
+  useEffect(() => {
+    rows.current = properties.rows;
+    cols.current = properties.cols;
+    setColorsList(properties.colors);
+    setEnemies(properties.enemyColors);
+    setCountdownSeconds(properties.countDownSeconds);
+  }, [properties]);
 
   return (
     <div className="main-container">
       <Stopper
-        totalSeconds={200}
+        totalSeconds={countdownSeconds}
         onDone={() => setGameOver(true)}
         shouldStop={gameOver}
       />
@@ -30,14 +43,14 @@ export function ColorsGame({ colorsList }) {
         <GameQuestText enemyColors={enemyColors} />
         <div className="mid-table-container">
           <ManagedColorsTable
-            tableColorList={colorsList}
+            tableColorList={colorsListState}
             setGameOver={setGameOver}
             enemyColors={enemyColors}
           />
         </div>
         <Clock />
       </div>
-      <Stopper totalSeconds={200} shouldStop={gameOver} />
+      <Stopper totalSeconds={countdownSeconds} shouldStop={gameOver} />
     </div>
   );
 }
