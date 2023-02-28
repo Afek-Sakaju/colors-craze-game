@@ -10,3 +10,5 @@ export const colorsList = [
   "lime",
   "pink",
 ];
+
+export const maxLevel = 5;

@@ -6,7 +6,11 @@ import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "../Clock/components/";
 import { GameQuestText } from "../../base-components";
-import { getPropertiesByLevel, randomiseColorsFromList } from "../../utils";
+import {
+  getPropertiesByLevel,
+  randomizeColorsFromList,
+  maxLevel,
+} from "../../utils";
 import "./ColorsGame.scss";
 
 export function ColorsGame({ colorsList }) {
@@ -40,7 +44,7 @@ export function ColorsGame({ colorsList }) {
             onChange={(colorsState) => {
               if (enemyColors.length === 0) {
                 setEnemyColors(
-                  randomiseColorsFromList(
+                  randomizeColorsFromList(
                     properties.enemyColorsCount,
                     Object.keys(colorsState)
                   )
@@ -53,7 +57,12 @@ export function ColorsGame({ colorsList }) {
                 if (totalEnemyRemaining === 0) {
                   setLevel(0);
                   setEnemyColors([]);
-                  setTimeout(() => setLevel(++prevLevel.current));
+                  setTimeout(() =>
+                    setLevel(() => {
+                      if (prevLevel.current === maxLevel) prevLevel.current = 0;
+                      return ++prevLevel.current;
+                    })
+                  );
                   setGameOver(true);
                 }
               }

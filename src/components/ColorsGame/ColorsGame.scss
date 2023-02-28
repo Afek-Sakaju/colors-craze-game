@@ -10,15 +10,13 @@
 .mid-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 70%;
-  border: 3px rgb(157, 254, 0) solid;
 }
 
 .mid-table-container {
   width: 70%;
   height: 55%;
-  margin-bottom: 100px;
 }

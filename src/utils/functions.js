@@ -20,9 +20,15 @@ export function isGameOver(matrix, enemyColors) {
   return !isEnemyInMatrix(matrix, enemyColors);
 }
 
-export function randomiseColorsFromList(colorsCount, colorsList) {
+export function randomizeColorsFromList(colorsCount, colorsList) {
+  let tempColorList = colorsList;
   const res = [];
-  while (colorsCount--) res.push(generateRandomColor(colorsList));
+
+  while (colorsCount-- || !tempColorList.length) {
+    const generatedColor = generateRandomColor(tempColorList);
+    res.push(generatedColor);
+    tempColorList = tempColorList.filter((color) => color !== generatedColor);
+  }
   return res;
 }
 
@@ -57,11 +63,10 @@ export function getPropertiesByLevel(level, colorsList) {
       properties.enemyColorsCount = 1;
       properties.rows = level + 2;
       properties.cols = level + 1;
-      properties.countdownSeconds = 200 - level * 20;
-      console.log("level 1");
+      properties.countdownSeconds = 120 - level * 20;
       break;
     case 2:
-      updatedColorsList = randomiseColorsFromList(
+      updatedColorsList = randomizeColorsFromList(
         colorsListLength - 1,
         colorsList
       );
@@ -69,11 +74,10 @@ export function getPropertiesByLevel(level, colorsList) {
       properties.enemyColorsCount = 1;
       properties.rows = level + 2;
       properties.cols = level + 1;
-      properties.countdownSeconds = 200 - level * 20;
-      console.log("level 2");
+      properties.countdownSeconds = 120 - level * 20;
       break;
     case 3:
-      updatedColorsList = randomiseColorsFromList(
+      updatedColorsList = randomizeColorsFromList(
         colorsListLength - 2,
         colorsList
       );
@@ -81,11 +85,10 @@ export function getPropertiesByLevel(level, colorsList) {
       properties.enemyColorsCount = 1;
       properties.rows = level + 2;
       properties.cols = level + 1;
-      properties.countdownSeconds = 200 - level * 20;
-      console.log("level 3");
+      properties.countdownSeconds = 120 - level * 20;
       break;
     case 4:
-      updatedColorsList = randomiseColorsFromList(
+      updatedColorsList = randomizeColorsFromList(
         colorsListLength - 2,
         colorsList
       );
@@ -93,11 +96,10 @@ export function getPropertiesByLevel(level, colorsList) {
       properties.enemyColorsCount = 2;
       properties.rows = level + 2;
       properties.cols = level + 1;
-      properties.countdownSeconds = 200 - level * 20;
-      console.log("level 4");
+      properties.countdownSeconds = 120 - level * 20;
       break;
     case 5:
-      updatedColorsList = randomiseColorsFromList(
+      updatedColorsList = randomizeColorsFromList(
         colorsListLength - 3,
         colorsList
       );
@@ -105,8 +107,7 @@ export function getPropertiesByLevel(level, colorsList) {
       properties.enemyColorsCount = 2;
       properties.rows = level + 2;
       properties.cols = level + 1;
-      properties.countdownSeconds = 200 - level * 20;
-      console.log("level 5");
+      properties.countdownSeconds = 120 - level * 20;
       break;
   }
 

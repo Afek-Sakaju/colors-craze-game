@@ -29,5 +29,5 @@ GameQuestText.propTypes = {
 };
 
 GameQuestText.defaultProps = {
-  enemyColors: ["red", "lime"],
+  enemyColors: ["black"],
 };

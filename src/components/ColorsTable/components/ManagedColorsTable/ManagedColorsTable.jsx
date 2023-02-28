@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { ColorsTable } from "../../base-components";
 import {
   createMatrix,
-  validateIndexes,
+  areValidIndexes,
   generateNewSquareColor,
 } from "../../utils";
 import { countColorsInMatrix } from "../../../../utils";
@@ -22,8 +22,8 @@ export function ManagedColorsTable({
     columns,
     colorsList: tableColorList,
   });
-  const [colorsMatrix, setColor] = useState(statesMatrix);
-  //change name to setColorsMatrix
+
+  const [colorsMatrix, setColorsMatrix] = useState(statesMatrix);
 
   useEffect(() => {
     const colorsState = countColorsInMatrix(statesMatrix);
@@ -32,9 +32,9 @@ export function ManagedColorsTable({
 
   const onClick = (id) => {
     const [i, j] = id.split("~");
-    //validateIndexes([i, j]); // recreate this
+    if (!areValidIndexes([i, j])) return;
 
-    setColor?.((mat) => {
+    setColorsMatrix?.((mat) => {
       const nextColor = generateNewSquareColor({
         prevColor: mat[i][j],
         allowRepeatedColors,
