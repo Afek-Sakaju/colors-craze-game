@@ -63,8 +63,7 @@ ManagedColorsTable.propTypes = {
   columns: PropTypes.number,
   allowRepeatedColors: PropTypes.bool,
   tableColorList: PropTypes.array,
-  setGameOver: PropTypes.func,
-  enemyColors: PropTypes.array,
+  onChange: PropTypes.func,
 };
 
 ManagedColorsTable.defaultProps = {
@@ -73,6 +72,5 @@ ManagedColorsTable.defaultProps = {
   columns: 4,
   allowRepeatedColors: true,
   tableColorList: ["red", "green", "blue"],
-  setGameOver: undefined,
-  enemyColors: undefined,
+  onChange: undefined,
 };
