@@ -4,6 +4,18 @@ export const generateRandomColor = (list = ["red", "blue", "green"]) => {
   return list[randomNumber];
 };
 
+export function countColorsInMatrix(mat) {
+  const colorsState = {};
+  mat.forEach((row) => {
+    row.forEach((color) => {
+      colorsState[color] ||= 0;
+      colorsState[color]++;
+    });
+  });
+
+  return colorsState;
+}
+
 export const createMatrix = ({
   rows,
   columns,

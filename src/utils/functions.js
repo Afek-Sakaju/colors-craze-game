@@ -32,18 +32,6 @@ export function randomizeColorsFromList(colorsCount, colorsList) {
   return res;
 }
 
-export function countColorsInMatrix(mat) {
-  const colorsState = {};
-  mat.forEach((row) => {
-    row.forEach((color) => {
-      colorsState[color] ||= 0;
-      colorsState[color]++;
-    });
-  });
-
-  return colorsState;
-}
-
 export function getPropertiesByLevel(level, colorsList) {
   if (level < 1 || level > 5) return;
 

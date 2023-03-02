@@ -7,7 +7,7 @@ import {
   areValidIndexes,
   generateNewSquareColor,
 } from "../../utils";
-import { countColorsInMatrix } from "../../../../utils";
+import { countColorsInMatrix } from "../../utils";
 
 export function ManagedColorsTable({
   backgroundColor,
