@@ -21,5 +21,5 @@ Square.propTypes = {
 Square.defaultProps = {
   color: "black",
   onClick: undefined,
-  id: "undefined~undefined",
+  id: undefined,
 };

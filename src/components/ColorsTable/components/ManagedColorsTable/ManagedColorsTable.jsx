@@ -1,48 +1,58 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 import { ColorsTable } from "../../base-components";
 import {
   createMatrix,
-  areValidIndexes,
-  generateNewSquareColor,
+  pickColor,
+  areInvalidIndexes,
+  getItemsColorsCount,
+  extractIndexesFromId,
+  ID_SEPARATOR,
 } from "../../utils";
-import { countColorsInMatrix } from "../../utils";
 
 export function ManagedColorsTable({
   backgroundColor,
-  columns,
   rows,
+  columns,
   allowRepeatedColors,
-  tableColorList,
+  colors,
   onChange,
 }) {
-  const statesMatrix = createMatrix({
-    rows,
-    columns,
-    colorsList: tableColorList,
-  });
-
-  const [colorsMatrix, setColorsMatrix] = useState(statesMatrix);
+  const statesMatrix = useMemo(
+    () =>
+      createMatrix({
+        rows,
+        columns,
+        colorsList: colors,
+      }),
+    [rows, columns, colors]
+  );
+  const [dataMatrix, setDataMatrix] = useState(statesMatrix);
 
   useEffect(() => {
-    const colorsState = countColorsInMatrix(statesMatrix);
+    setDataMatrix(statesMatrix);
+  }, [statesMatrix]);
+
+  useEffect(() => {
+    const colorsState = getItemsColorsCount(statesMatrix);
     onChange?.(colorsState);
   }, []);
 
   const onClick = (id) => {
-    const [i, j] = id.split("~");
-    if (!areValidIndexes([i, j])) return;
+    const [i, j] = extractIndexesFromId(id, ID_SEPARATOR);
+    if (areInvalidIndexes({ i, j, mat: dataMatrix })) return;
 
-    setColorsMatrix?.((mat) => {
-      const nextColor = generateNewSquareColor({
-        prevColor: mat[i][j],
+    setDataMatrix?.((mat) => {
+      const nextColor = pickColor({
+        prevColor: mat[i][j].color,
         allowRepeatedColors,
-        colorsList: tableColorList,
+        colorsList: colors,
       });
 
-      mat[i][j] = nextColor;
-      const colorsState = countColorsInMatrix(mat);
+      mat[i][j].color = nextColor;
+      const colorsState = getItemsColorsCount(mat);
       onChange?.(colorsState);
       return [...mat];
     });
@@ -50,7 +60,7 @@ export function ManagedColorsTable({
 
   return (
     <ColorsTable
-      colorsMatrix={colorsMatrix}
+      dataMatrix={dataMatrix}
       onClick={onClick}
       backgroundColor={backgroundColor}
     />
@@ -62,15 +72,15 @@ ManagedColorsTable.propTypes = {
   rows: PropTypes.number,
   columns: PropTypes.number,
   allowRepeatedColors: PropTypes.bool,
-  tableColorList: PropTypes.array,
+  colors: PropTypes.arrayOf(PropTypes.string),
   onChange: PropTypes.func,
 };
 
 ManagedColorsTable.defaultProps = {
-  backgroundColor: "white",
-  rows: 3,
-  columns: 4,
+  backgroundColor: undefined,
+  rows: 1,
+  columns: 1,
   allowRepeatedColors: true,
-  tableColorList: ["red", "green", "blue"],
+  colors: ["black"],
   onChange: undefined,
 };

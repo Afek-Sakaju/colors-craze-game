@@ -44,18 +44,16 @@ Default.decorators = [
   ),
 ];
 
-export const AdjustSize = (props) => {
-  return (
-    <div
-      style={{
-        height: `${props.height}px`,
-        width: `${props.width}px`,
-      }}
-    >
-      <ColorsTable />
-    </div>
-  );
-};
+export const AdjustSize = (props) => (
+  <div
+    style={{
+      height: `${props.height}px`,
+      width: `${props.width}px`,
+    }}
+  >
+    <ColorsTable />
+  </div>
+);
 AdjustSize.argTypes = {
   height: {
     control: { type: "number", min: 50, max: 3000, step: 50 },
@@ -69,7 +67,7 @@ AdjustSize.argTypes = {
   rows: { control: false },
   columns: { control: false },
   allowRepeatedColors: { control: false },
-  tableColorList: { control: false },
+  colors: { control: false },
 };
 
 export const Custom = Template.bind({});
@@ -85,7 +83,7 @@ Custom.argTypes = {
   },
 
   allowRepeatedColors: { control: { type: "boolean" } },
-  tableColorList: { control: false },
+  colors: { control: false },
 };
 Custom.decorators = [
   (Story) => (

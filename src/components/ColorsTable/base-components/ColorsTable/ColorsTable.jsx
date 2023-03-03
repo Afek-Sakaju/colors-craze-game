@@ -3,23 +3,20 @@ import PropTypes from "prop-types";
 
 import "./ColorsTable.scss";
 import { Square } from "../";
+import { buildIdFromIndexes, ID_SEPARATOR } from "../../utils";
 
-export function ColorsTable({ backgroundColor, colorsMatrix, onClick }) {
+export function ColorsTable({ backgroundColor, dataMatrix, onClick }) {
   return (
     <div
-      className="tableContainer"
+      className="table-container"
       style={{ backgroundColor: backgroundColor }}
     >
-      {colorsMatrix.map((_, i) => (
-        <div className="row" key={i}>
-          {colorsMatrix[i].map((color, j) => {
+      {dataMatrix?.map((row, i) => (
+        <div key={i} className="row">
+          {row?.map((item, j) => {
+            const id = buildIdFromIndexes(i, j, ID_SEPARATOR);
             return (
-              <Square
-                id={`${i}~${j}`}
-                color={color}
-                onClick={onClick}
-                key={`${i}~${j}`}
-              />
+              <Square key={id} id={id} color={item.color} onClick={onClick} />
             );
           })}
         </div>
@@ -30,11 +27,18 @@ export function ColorsTable({ backgroundColor, colorsMatrix, onClick }) {
 
 ColorsTable.propTypes = {
   backgroundColor: PropTypes.string,
-  colorsMatrix: PropTypes.array.isRequired,
+  dataMatrix: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        color: PropTypes.string,
+      })
+    )
+  ),
   onClick: PropTypes.func,
 };
 
 ColorsTable.defaultProps = {
-  backgroundColor: "white",
+  backgroundColor: undefined,
+  dataMatrix: undefined,
   onClick: undefined,
 };
