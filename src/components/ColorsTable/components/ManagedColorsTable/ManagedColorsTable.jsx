@@ -36,7 +36,7 @@ export function ManagedColorsTable({
   }, [statesMatrix]);
 
   useEffect(() => {
-    const colorsState = getItemsColorsCount(statesMatrix);
+    const colorsState = getItemsColorsCount(dataMatrix);
     onChange?.(colorsState);
   }, []);
 

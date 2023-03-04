@@ -24,7 +24,7 @@ export function randomizeColorsFromList(colorsCount, colorsList) {
   let tempColorList = colorsList;
   const res = [];
 
-  while (colorsCount-- || !tempColorList.length) {
+  while (colorsCount-- ) {
     const generatedColor = generateRandomColor(tempColorList);
     res.push(generatedColor);
     tempColorList = tempColorList.filter((color) => color !== generatedColor);

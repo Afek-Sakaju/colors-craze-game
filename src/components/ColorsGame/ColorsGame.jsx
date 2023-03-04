@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { ManagedColorsTable } from "../ColorsTable/components/";
@@ -40,9 +40,9 @@ export function ColorsGame({ colorsList }) {
         <GameQuestText level={level} enemyColors={enemyColors} />
         <div className="mid-table-container">
           <ManagedColorsTable
-            tableColorList={properties.colors}
+            colors={properties.colors}
             onChange={(colorsState) => {
-              if (enemyColors.length === 0) {
+              if (!enemyColors.length) {
                 setEnemyColors(
                   randomizeColorsFromList(
                     properties.enemyColorsCount,
@@ -51,7 +51,7 @@ export function ColorsGame({ colorsList }) {
                 );
               } else {
                 const totalEnemyRemaining = enemyColors.reduce(
-                  (total, c) => total + (colorsState[c] ?? 0),
+                  (total, enemyColor) => total + (colorsState[enemyColor] ?? 0),
                   0
                 );
                 if (totalEnemyRemaining === 0) {
