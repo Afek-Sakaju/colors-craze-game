@@ -8,19 +8,22 @@ export function GameQuestText({ level, enemyColors }) {
   const lastIndex = enemyColors.length - 1;
 
   return (
-    <span className="game-quest-text">
-      Level: {level} | Clear all blocks:
-      {enemyColors?.map((color, i) => {
-        return (
-          <span key={getRandomNumber()}>
-            <span style={{ color }} key={getRandomNumber()}>
-              {color}
+    <p>
+      <p className="game-level-text">Level: {level}</p>
+      <p className="game-quest-text">
+        <span>Clear all blocks: </span>
+        {enemyColors?.map((color, i) => {
+          return (
+            <span key={getRandomNumber()}>
+              <span style={{ color }} key={getRandomNumber()}>
+                {color}
+              </span>
+              <span key={getRandomNumber()}>{i === lastIndex || ","}</span>
             </span>
-            <span key={getRandomNumber()}>{i === lastIndex || ","}</span>
-          </span>
-        );
-      })}
-    </span>
+          );
+        })}
+      </p>
+    </p>
   );
 }
 

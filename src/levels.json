@@ -1,0 +1,37 @@
+{
+  "1": {
+    "rows": 4,
+    "cols": 4,
+    "colors": ["red", "blue", "green", "yellow", "pink", "blue"],
+    "enemyColorsCount": 1,
+    "countdownSeconds": 160
+  },
+  "2": {
+    "rows": 4,
+    "cols": 5,
+    "colors": ["red", "blue", "green", "yellow", "pink"],
+    "enemyColorsCount": 2,
+    "countdownSeconds": 140
+  },
+  "3": {
+    "rows": 5,
+    "cols": 5,
+    "colors": ["red", "blue", "green", "yellow"],
+    "enemyColorsCount": 3,
+    "countdownSeconds": 120
+  },
+  "4": {
+    "rows": 6,
+    "cols": 6,
+    "colors": ["red", "blue", "green", "yellow"],
+    "enemyColorsCount": 3,
+    "countdownSeconds": 90
+  },
+  "5": {
+    "rows": 8,
+    "cols": 8,
+    "colors": ["red", "blue", "green", "yellow"],
+    "enemyColorsCount": 3,
+    "countdownSeconds": 60
+  }
+}

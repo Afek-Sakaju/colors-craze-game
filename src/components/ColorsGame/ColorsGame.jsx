@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import PropTypes from "prop-types";
 
 import { ManagedColorsTable } from "../ColorsTable/components/";
@@ -13,11 +14,11 @@ import {
 } from "../../utils";
 import "./ColorsGame.scss";
 
-export function ColorsGame({ colorsList }) {
+export function ColorsGame() {
   const [gameOver, setGameOver] = useState(false);
   const [level, setLevel] = useState(1);
   const [enemyColors, setEnemyColors] = useState([]);
-  const properties = getPropertiesByLevel(level, colorsList);
+  const properties = getPropertiesByLevel(level);
   const prevLevel = useRef(level);
 
   useEffect(() => {
@@ -40,14 +41,17 @@ export function ColorsGame({ colorsList }) {
         <GameQuestText level={level} enemyColors={enemyColors} />
         <div className="mid-table-container">
           <ManagedColorsTable
-            colors={properties.colors}
+            tableProperties={{
+              rows: properties.rows,
+              columns: properties.cols,
+              colors: properties.colors,
+            }}
             onChange={(colorsState) => {
               if (!enemyColors.length) {
                 setEnemyColors(
                   randomizeColorsFromList(
                     properties.enemyColorsCount,
-                    Object.keys(colorsState)
-                  )
+                    Object.keys(colorsState)                  )
                 );
               } else {
                 const totalEnemyRemaining = enemyColors.reduce(
@@ -67,8 +71,6 @@ export function ColorsGame({ colorsList }) {
                 }
               }
             }}
-            rows={properties.rows}
-            columns={properties.cols}
           />
         </div>
         <Clock />
@@ -81,10 +83,6 @@ export function ColorsGame({ colorsList }) {
   ) : null;
 }
 
-ColorsGame.propTypes = {
-  colorsList: PropTypes.array,
-};
+ColorsGame.propTypes = {};
 
-ColorsGame.defaultProps = {
-  colorsList: undefined,
-};
+ColorsGame.defaultProps = {};

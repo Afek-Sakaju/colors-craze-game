@@ -1,9 +1,15 @@
-.game-quest-text {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  font-size: 2.5rem;
+.game-level-text {
+  font-size: 1.5rem;
   font-weight: 500;
-  padding-top: 15px;
+  text-align: center;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.game-quest-text {
+  text-align: center;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0;
 }
