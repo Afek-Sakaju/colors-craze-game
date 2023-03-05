@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from "react";
 
-import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
 import { Clock } from "digital-clock-react";
+import { ManagedColorsTable } from "colors-table-react";
 import { GameQuestText } from "../../base-components";
 import {
   getPropertiesByLevel,
@@ -39,11 +39,9 @@ export function ColorsGame() {
         <GameQuestText level={level} enemyColors={enemyColors} />
         <div className="mid-table-container">
           <ManagedColorsTable
-            tableProperties={{
-              rows: properties.rows,
-              columns: properties.cols,
-              colors: properties.colors,
-            }}
+            rows={properties.rows}
+            columns={properties.cols}
+            colors={properties.colors}
             onChange={(colorsState) => {
               if (!enemyColors.length) {
                 setEnemyColors(

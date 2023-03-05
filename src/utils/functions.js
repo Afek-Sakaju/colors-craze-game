@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import { generateRandomColor } from "../components/ColorsTable/utils";
+import { generateRandomColor } from "colors-table-react";
 import LEVELS from "../levels.json";
 
 export function getRandomNumber() {
@@ -30,7 +30,6 @@ export function randomizeColorsFromList(
   const res = [];
 
   while (colorsCount--) {
-
     const generatedColor = generateRandomColor(tempColorList);
     res.push(generatedColor);
     tempColorList = tempColorList.filter((color) => color !== generatedColor);
