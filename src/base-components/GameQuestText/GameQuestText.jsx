@@ -8,7 +8,7 @@ export function GameQuestText({ level, enemyColors }) {
   const lastIndex = enemyColors.length - 1;
 
   return (
-    <p>
+    <div>
       <p className="game-level-text">Level: {level}</p>
       <p className="game-quest-text">
         <span>Clear all blocks: </span>
@@ -23,7 +23,7 @@ export function GameQuestText({ level, enemyColors }) {
           );
         })}
       </p>
-    </p>
+    </div>
   );
 }
 
