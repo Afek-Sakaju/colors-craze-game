@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "circular-countdown-react": "^0.0.6",
-    "colors-table-react": "^0.0.5",
+    "colors-table-react": "^0.0.7",
     "digital-clock-react": "^0.1.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
