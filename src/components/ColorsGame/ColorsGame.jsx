@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from "react";
 
-import { Stopper } from "../Stopper/components";
 import { Clock } from "digital-clock-react";
 import { ManagedColorsTable } from "colors-table-react";
 import { GameQuestText } from "../../base-components";
@@ -25,7 +24,7 @@ export function ColorsGame() {
 
   return level ? (
     <div className="main-container">
-      <Stopper
+      <Countdown
         totalSeconds={properties.countdownSeconds}
         onDone={() => {
           setLevel(0);
@@ -72,7 +71,7 @@ export function ColorsGame() {
         </div>
         <Clock />
       </div>
-      <Stopper
+      <Countdown
         totalSeconds={properties.countdownSeconds}
         shouldStop={gameOver}
       />
