@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import PropTypes from "prop-types";
 
 import { ManagedColorsTable } from "../ColorsTable/components/";
 import { Stopper } from "../Stopper/components";
-import { Clock } from "../Clock/components/";
+import { Clock } from "digital-clock-react";
 import { GameQuestText } from "../../base-components";
 import {
   getPropertiesByLevel,
@@ -51,7 +49,8 @@ export function ColorsGame() {
                 setEnemyColors(
                   randomizeColorsFromList(
                     properties.enemyColorsCount,
-                    Object.keys(colorsState)                  )
+                    Object.keys(colorsState)
+                  )
                 );
               } else {
                 const totalEnemyRemaining = enemyColors.reduce(
