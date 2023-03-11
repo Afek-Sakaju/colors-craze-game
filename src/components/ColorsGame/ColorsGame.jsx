@@ -21,8 +21,8 @@ export function ColorsGame() {
     if (!enemyColors.length) {
       setEnemyColors(
         randomizeColorsFromList(
-          properties.enemyColorsCount,
-          Object.keys(colorsState)
+          Object.keys(colorsState),
+          properties.enemyColorsCount
         )
       );
     } else {
@@ -43,6 +43,13 @@ export function ColorsGame() {
       }
     }
   };
+  const onDoneHandler = () => {
+    setLevel(0);
+    setEnemyColors([]);
+    setTimeout(() => setLevel(1));
+    prevLevel.current = 1;
+    setGameOver(true);
+  };
 
   useEffect(() => {
     setGameOver(false);
@@ -52,12 +59,7 @@ export function ColorsGame() {
     <div className="main-container">
       <Countdown
         totalSeconds={properties.countdownSeconds}
-        onDone={() => {
-          setLevel(0);
-          setEnemyColors([]);
-          setTimeout(() => setLevel(1));
-          setGameOver(true);
-        }}
+        onDone={onDoneHandler}
         shouldStop={gameOver}
       />
       <div className="mid-container">

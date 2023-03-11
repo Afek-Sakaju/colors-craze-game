@@ -21,11 +21,7 @@ export function isGameOver(matrix, enemyColors) {
   return !isEnemyInMatrix(matrix, enemyColors);
 }
 
-export function randomizeColorsFromList(
-  colorsCount,
-  colorsList,
-  isEnemy = false
-) {
+export function randomizeColorsFromList(colorsList, colorsCount) {
   let tempColorList = colorsList;
   const res = [];
 
