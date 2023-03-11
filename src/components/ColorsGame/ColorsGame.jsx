@@ -17,6 +17,32 @@ export function ColorsGame() {
   const [enemyColors, setEnemyColors] = useState([]);
   const properties = getPropertiesByLevel(level);
   const prevLevel = useRef(level);
+  const onChangeHandler = (colorsState) => {
+    if (!enemyColors.length) {
+      setEnemyColors(
+        randomizeColorsFromList(
+          properties.enemyColorsCount,
+          Object.keys(colorsState)
+        )
+      );
+    } else {
+      const totalEnemyRemaining = enemyColors.reduce(
+        (total, enemyColor) => total + (colorsState[enemyColor] ?? 0),
+        0
+      );
+      if (totalEnemyRemaining === 0) {
+        setLevel(0);
+        setEnemyColors([]);
+        setTimeout(() =>
+          setLevel(() => {
+            if (prevLevel.current === maxLevel) prevLevel.current = 0;
+            return ++prevLevel.current;
+          })
+        );
+        setGameOver(true);
+      }
+    }
+  };
 
   useEffect(() => {
     setGameOver(false);
@@ -41,32 +67,7 @@ export function ColorsGame() {
             rows={properties.rows}
             columns={properties.cols}
             colors={properties.colors}
-            onChange={(colorsState) => {
-              if (!enemyColors.length) {
-                setEnemyColors(
-                  randomizeColorsFromList(
-                    properties.enemyColorsCount,
-                    Object.keys(colorsState)
-                  )
-                );
-              } else {
-                const totalEnemyRemaining = enemyColors.reduce(
-                  (total, enemyColor) => total + (colorsState[enemyColor] ?? 0),
-                  0
-                );
-                if (totalEnemyRemaining === 0) {
-                  setLevel(0);
-                  setEnemyColors([]);
-                  setTimeout(() =>
-                    setLevel(() => {
-                      if (prevLevel.current === maxLevel) prevLevel.current = 0;
-                      return ++prevLevel.current;
-                    })
-                  );
-                  setGameOver(true);
-                }
-              }
-            }}
+            onChange={onChangeHandler}
           />
         </div>
         <Clock />
