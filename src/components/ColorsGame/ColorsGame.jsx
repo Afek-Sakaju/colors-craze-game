@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from "react";
 
 import { Clock } from "digital-clock-react";
 import { ManagedColorsTable } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
-import { GameQuestText } from "../../base-components";
+import { GameQuestText } from "../GameQuestText/GameQuestText";
 import {
   getPropertiesByLevel,
   randomizeColorsFromList,
