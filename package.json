@@ -2,6 +2,7 @@
   "name": "color-clearing-game",
   "version": "1.0.0",
   "private": false,
+  "homepage": "http://afektheminilearner.github.io/color-clearing-game",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -52,6 +54,7 @@
   },
   "devDependencies": {
     "babel-plugin-named-exports-order": "^0.0.2",
+    "gh-pages": "^5.0.0",
     "sass": "^1.58.3",
     "webpack": "^5.75.0"
   }
