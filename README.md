@@ -8,6 +8,8 @@
 
 ---
 
+**Live demo:**</br>[color-clearing-game](http://afektheminilearner.github.io/color-clearing-game)
+
 **Installation:**</br>
 _`npm install`_
 
