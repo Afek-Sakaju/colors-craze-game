@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/color-clearing-game/static/css/main.f05fcbc2.css",
-    "main.js": "/color-clearing-game/static/js/main.1a1fee4f.js",
-    "static/js/787.5c197697.chunk.js": "/color-clearing-game/static/js/787.5c197697.chunk.js",
+    "main.css": "/color-clearing-game/static/css/main.846e394c.css",
+    "main.js": "/color-clearing-game/static/js/main.dadfad19.js",
     "index.html": "/color-clearing-game/index.html",
-    "main.f05fcbc2.css.map": "/color-clearing-game/static/css/main.f05fcbc2.css.map",
-    "main.1a1fee4f.js.map": "/color-clearing-game/static/js/main.1a1fee4f.js.map",
-    "787.5c197697.chunk.js.map": "/color-clearing-game/static/js/787.5c197697.chunk.js.map"
+    "main.846e394c.css.map": "/color-clearing-game/static/css/main.846e394c.css.map",
+    "main.dadfad19.js.map": "/color-clearing-game/static/js/main.dadfad19.js.map"
   },
   "entrypoints": [
-    "static/css/main.f05fcbc2.css",
-    "static/js/main.1a1fee4f.js"
+    "static/css/main.846e394c.css",
+    "static/js/main.dadfad19.js"
   ]
 }
