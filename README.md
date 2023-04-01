@@ -20,7 +20,7 @@ _`npm run start`_
 
 ### **Example of using the clock component:**
 
-![Example-GIF](./readme-resources/games-gif.gif)
+![Example-GIF](./readme-resources/game-gif.gif)
 
 ---
 
