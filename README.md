@@ -26,7 +26,7 @@ _`npm run start`_
 
 ### **Technology**
 
-### This project has been developed using ReactJS, JavaScript, and SASS/CSS. The project also uses my other components that were imported as npm packages for improved efficiency and easy updates:
+### This project has been developed using ReactJS, JavaScript, SASS/CSS, and ESLINT using airbnb style guide. The project also uses my other components that were imported as npm packages for improved efficiency and easy updates:
 
 - **Colors Table:** Generates a dynamic game board filled with colors.
 - **Digital clock:** Displays the current time in a digital format.
