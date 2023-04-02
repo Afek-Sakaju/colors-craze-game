@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorsGame } from "./components/";
+import { ColorsGame } from "./components";
 
 function App() {
   return (

@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import { generateRandomColor } from "colors-table-react";
 import LEVELS from "../levels.json";
 
@@ -8,17 +7,12 @@ export function getRandomNumber() {
 
 export function isEnemyInMatrix(matrix, enemyColors) {
   matrix.forEach((row) => {
+    // eslint-disable-next-line consistent-return
     row.forEach((color) => {
       if (enemyColors.some((enemy) => enemy === color)) return true;
     });
   });
   return false;
-}
-
-export function isGameOver(matrix, enemyColors) {
-  if (!matrix || !enemyColors) return;
-
-  return !isEnemyInMatrix(matrix, enemyColors);
 }
 
 export function randomizeColorsFromList(colorsList, colorsCount) {

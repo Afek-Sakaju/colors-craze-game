@@ -22,6 +22,7 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "lint": "eslint --ext .jsx --ext .js .",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -55,6 +56,11 @@
   },
   "devDependencies": {
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
     "gh-pages": "^5.0.0",
     "sass": "^1.58.3",
     "webpack": "^5.75.0"

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { getRandomNumber } from "../../utils";
 import "./GameQuestText.scss";
 
-export function GameQuestText({ level, enemyColors }) {
+function GameQuestText({ level, enemyColors }) {
   const lastIndex = enemyColors.length - 1;
 
   return (
@@ -28,9 +28,13 @@ export function GameQuestText({ level, enemyColors }) {
 }
 
 GameQuestText.propTypes = {
-  enemyColors: PropTypes.array,
+  level: PropTypes.number,
+  enemyColors: PropTypes.arrayOf(PropTypes.string),
 };
 
 GameQuestText.defaultProps = {
+  level: 0,
   enemyColors: ["black"],
 };
+
+export default GameQuestText;

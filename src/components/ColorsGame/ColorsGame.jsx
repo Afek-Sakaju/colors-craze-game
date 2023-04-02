@@ -3,15 +3,15 @@ import React, { useRef, useEffect, useState } from "react";
 import { Clock } from "digital-clock-react";
 import { ManagedColorsTable } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
-import { GameQuestText } from "../GameQuestText/GameQuestText";
+import GameQuestText from "../GameQuestText/GameQuestText";
 import {
   getPropertiesByLevel,
   randomizeColorsFromList,
-  maxLevel,
+  MAX_LEVEL,
 } from "../../utils";
 import "./ColorsGame.scss";
 
-export function ColorsGame() {
+function ColorsGame() {
   const [gameOver, setGameOver] = useState(false);
   const [level, setLevel] = useState(1);
   const [enemyColors, setEnemyColors] = useState([]);
@@ -35,7 +35,7 @@ export function ColorsGame() {
         setEnemyColors([]);
         setTimeout(() =>
           setLevel(() => {
-            if (prevLevel.current === maxLevel) prevLevel.current = 0;
+            if (prevLevel.current === MAX_LEVEL) prevLevel.current = 0;
             return ++prevLevel.current;
           })
         );
@@ -82,6 +82,4 @@ export function ColorsGame() {
   ) : null;
 }
 
-ColorsGame.propTypes = {};
-
-ColorsGame.defaultProps = {};
+export default ColorsGame;
