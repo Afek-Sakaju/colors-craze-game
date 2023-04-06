@@ -18,7 +18,7 @@ _`npm run start`_
 
 ---
 
-### **Example of using the clock component:**
+### **Example of playing the game:**
 
 ![Example-GIF](./readme-resources/game-gif.gif)
 
