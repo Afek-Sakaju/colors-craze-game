@@ -16,6 +16,9 @@ _`npm install`_
 **Running the project:**</br>
 _`npm run start`_
 
+**(optional) Testing the utils function with js-docs:**</br>
+run the following command on your terminal:</br> _`npm run build-jsdocs`_</br>then open the 'index.html' file inside the folder 'js-docs'.
+
 ---
 
 ### **Example of playing the game:**
