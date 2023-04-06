@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest/globals": true
   },
   "ignorePatterns": [
     "node_modules",
@@ -22,7 +23,7 @@
     "plugin:prettier/recommended",
     "airbnb/hooks"
   ],
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "jest"],
   "rules": {
     "jsx-a11y/no-static-element-interactions": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
