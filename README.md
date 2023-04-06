@@ -32,6 +32,8 @@ _`npm run start`_
 - **Digital clock:** Displays the current time in a digital format.
 - **Circular countdown:** Shows the remaining time for the current level in a circular progress bar.
 
+---
+
 ## Author
 
 :octocat: **Afek Sakaju**
