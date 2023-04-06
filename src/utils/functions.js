@@ -16,7 +16,6 @@ export const getRandomNumber = (min = 0, max = 10000) => {
 
 export function isEnemyInMatrix(matrix, enemyColors) {
   matrix.forEach((row) => {
-    // eslint-disable-next-line consistent-return
     row.forEach((color) => {
       if (enemyColors.some((enemy) => enemy === color)) return true;
     });
