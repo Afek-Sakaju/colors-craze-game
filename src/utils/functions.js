@@ -1,9 +1,18 @@
 import { generateRandomColor } from "colors-table-react";
 import LEVELS from "../levels.json";
 
-export function getRandomNumber() {
-  return Math.random() * 999999;
-}
+/**
+ *
+ * Generates a random integer between a given range, if range isn't provided
+ * generates from 0 - 10000
+ * @function
+ * @param {number} min - The minimum value of the range.
+ * @param {number} max - The maximum value of the range.
+ * @returns {number} - A random integer between the min-max range (inclusive).
+ */
+export const getRandomNumber = (min = 0, max = 10000) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 export function isEnemyInMatrix(matrix, enemyColors) {
   matrix.forEach((row) => {
