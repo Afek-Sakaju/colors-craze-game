@@ -13,6 +13,12 @@ export const getRandomNumber = (min = 0, max = 10000) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+/**
+ *
+ * Retrieves the color properties for a specific level from the LEVELS object.
+ * @param {number} level - The level number.
+ * @returns {object|null} - An object containing the color properties for the level, or null if the level does not exist.
+ */
 export function getPropertiesByLevel(level) {
-  return LEVELS[level] ?? null;
+  return LEVELS[level];
 }

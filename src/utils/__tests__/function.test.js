@@ -1,4 +1,5 @@
-import { getRandomNumber } from "../functions";
+import { getPropertiesByLevel, getRandomNumber } from "../functions";
+import LEVELS from "../../levels.json";
 
 describe("functions tests", () => {
   describe("getRandomNumber tests", () => {
@@ -33,6 +34,26 @@ describe("functions tests", () => {
       const areAllEqual = num1 === num2 && num2 === num3 && num3 === num4;
 
       expect(areAllEqual).toBeFalsy();
+    });
+  });
+
+  describe("getPropertiesByLevel tests", () => {
+    test.each([
+      [1, LEVELS[1]],
+      [2, LEVELS[2]],
+      [4, LEVELS[4]],
+    ])(
+      "getting properties by level %s should return %s result",
+      (level, expected) => {
+        const res = getPropertiesByLevel(level);
+        expect(res).toEqual(expected);
+      }
+    );
+
+    test("getting properties by non-existing level should return null", () => {
+      const res = getPropertiesByLevel[LEVELS.length + 1];
+
+      expect(res).toBe(undefined);
     });
   });
 });
