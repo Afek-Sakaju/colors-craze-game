@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
 
+import GameQuestText from "@components/GameQuestText/GameQuestText";
+import { getPropertiesByLevel, MAX_LEVEL } from "@utils";
+import "./ColorsGame.scss";
 import { Clock } from "digital-clock-react";
 import {
   ManagedColorsTable,
   randomizeColorsFromList,
 } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
-import GameQuestText from "../GameQuestText/GameQuestText";
-import { getPropertiesByLevel, MAX_LEVEL } from "../../utils";
-import "./ColorsGame.scss";
 
 function ColorsGame() {
   const [gameOver, setGameOver] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { getRandomNumber } from "../../utils";
+import { getRandomNumber } from "@utils";
 import "./GameQuestText.scss";
 
 function GameQuestText({ level, enemyColors }) {

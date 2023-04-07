@@ -42,5 +42,18 @@
       }
     ],
     "react/prop-types": [2, { "ignore": ["children"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@src", "./src/"],
+          ["@components", "./src/components/"],
+          ["@base-components", "./src/base-components/"],
+          ["@utils", "./src/utils/"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
