@@ -1,14 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 
 import { Clock } from "digital-clock-react";
-import { ManagedColorsTable } from "colors-table-react";
+import {
+  ManagedColorsTable,
+  randomizeColorsFromList,
+} from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
 import GameQuestText from "../GameQuestText/GameQuestText";
-import {
-  getPropertiesByLevel,
-  randomizeColorsFromList,
-  MAX_LEVEL,
-} from "../../utils";
+import { getPropertiesByLevel, MAX_LEVEL } from "../../utils";
 import "./ColorsGame.scss";
 
 function ColorsGame() {
