@@ -9,6 +9,7 @@ import {
   randomizeColorsFromList,
 } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
+// import LEVELS from "../../levels.json";
 
 function ColorsGame() {
   const [gameOver, setGameOver] = useState(false);
@@ -46,6 +47,7 @@ function ColorsGame() {
     setLevel(0);
     setEnemyColors([]);
     setTimeout(() => setLevel(1));
+    if (prevLevel.current === 1) prevLevel.current = 0;
     prevLevel.current = 1;
     setGameOver(true);
   };
