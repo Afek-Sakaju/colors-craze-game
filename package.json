@@ -1,24 +1,15 @@
 {
   "name": "color-clearing-game",
+  "description": "Project of a game where players need to clear enemy colors from the game board.",
   "author": "afek-sakaju",
   "homepage": "http://afektheminilearner.github.io/color-clearing-game",
+  "keywords": [
+    "colors",
+    "game",
+    "react"
+  ],
   "version": "1.0.0",
-  "private": false,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "circular-countdown-react": "^1.0.2",
-    "colors-table-react": "^1.0.2",
-    "craco-alias": "^3.0.1",
-    "digital-clock-react": "^1.0.0",
-    "path": "^0.12.7",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "private": true,
   "scripts": {
     "start": "craco start",
     "build": "craco build",
@@ -40,6 +31,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "circular-countdown-react": "^1.0.2",
+    "colors-table-react": "^1.0.2",
+    "craco-alias": "^3.0.1",
+    "digital-clock-react": "^1.0.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
