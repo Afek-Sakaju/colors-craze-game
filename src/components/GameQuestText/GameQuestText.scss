@@ -1,15 +1,25 @@
 .game-level-text {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
   text-decoration: underline;
   margin: 0;
+
+  @media (max-width: 1280px) {
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
 }
 
 .game-quest-text {
   text-align: center;
   width: 100%;
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: bold;
   margin: 0;
+
+  @media (max-width: 1280px) {
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
 }

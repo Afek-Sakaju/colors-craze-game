@@ -9,7 +9,6 @@ import {
   randomizeColorsFromList,
 } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
-// import LEVELS from "../../levels.json";
 
 function ColorsGame() {
   const [gameOver, setGameOver] = useState(false);
@@ -58,11 +57,13 @@ function ColorsGame() {
 
   return level ? (
     <div className="main-container">
-      <Countdown
-        totalSeconds={properties.countdownSeconds}
-        onDone={onDoneHandler}
-        shouldStop={gameOver}
-      />
+      <div className="only-for-widescreens">
+        <Countdown
+          totalSeconds={properties.countdownSeconds}
+          shouldStop={gameOver}
+          size="small"
+        />
+      </div>
       <div className="mid-container">
         <GameQuestText level={level} enemyColors={enemyColors} />
         <div className="mid-table-container">
@@ -73,11 +74,15 @@ function ColorsGame() {
             onChange={onChangeHandler}
           />
         </div>
-        <Clock />
+        <div className="only-for-widescreens">
+          <Clock />
+        </div>
       </div>
       <Countdown
         totalSeconds={properties.countdownSeconds}
+        onDone={onDoneHandler}
         shouldStop={gameOver}
+        size="small"
       />
     </div>
   ) : null;
