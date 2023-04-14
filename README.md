@@ -29,7 +29,7 @@ run the following command on your terminal:</br> _`npm run build-jsdocs`_</br>th
 
 ### **Technology**
 
-### This project has been developed using ReactJS, JavaScript, SASS/CSS, ESLINT. The project has been adapted using media queries to also fit smaller screens. Iv'e also imported my other components that have been published as NPM packages for improved efficiency and easier updates:
+### This project has been developed using ReactJS, JavaScript, SASS/CSS, ESLINT.<br />The project is adapted using media queries to also fit smaller screens. <br />Iv'e also imported my other components that have been published as NPM packages for improved efficiency and easier updates:
 
 - **Colors Table:** Generates a dynamic game board filled with colors.
 - **Digital clock:** Displays the current time in a digital format.
