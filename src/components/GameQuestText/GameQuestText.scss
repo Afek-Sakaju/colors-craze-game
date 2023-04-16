@@ -1,4 +1,4 @@
-.game-level-text {
+.level-text {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -11,7 +11,7 @@
   }
 }
 
-.game-quest-text {
+.game-quest {
   text-align: center;
   width: 100%;
   font-size: 1.8rem;
@@ -21,5 +21,12 @@
   @media (max-width: 1280px) {
     font-size: 1.5rem;
     font-weight: bolder;
+  }
+}
+
+.color-text {
+  &:not(:last-child)::after {
+    content: ", ";
+    color: black;
   }
 }
