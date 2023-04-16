@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { getRandomNumber } from "@utils";
 import "./GameQuestText.scss";
 
-function GameQuestText({ level, enemyColors }) {
+export default function GameQuestText({ level, enemyColors }) {
   return (
     <div>
       <p className="level-text">Level: {level}</p>
@@ -35,5 +35,3 @@ GameQuestText.defaultProps = {
   level: 0,
   enemyColors: ["black"],
 };
-
-export default GameQuestText;

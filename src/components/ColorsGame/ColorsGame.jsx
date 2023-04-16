@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
+import PopupBox from "@components/PopupBox/PopupBox";
 import GameQuestText from "@components/GameQuestText/GameQuestText";
 import { getPropertiesByLevel, MAX_LEVEL } from "@utils";
 import "./ColorsGame.scss";
@@ -10,8 +11,8 @@ import {
 } from "colors-table-react";
 import { Countdown } from "circular-countdown-react";
 
-function ColorsGame() {
-  const [gameOver, setGameOver] = useState(false);
+export default function ColorsGame() {
+  const [gameOver, setGameOver] = useState(true);
   const [level, setLevel] = useState(1);
   const [enemyColors, setEnemyColors] = useState([]);
   const properties = getPropertiesByLevel(level);
@@ -51,41 +52,45 @@ function ColorsGame() {
     setGameOver(true);
   };
 
-  useEffect(() => {
-    setGameOver(false);
-  }, [level]);
-
   return level ? (
     <div className="main-container">
-      <div className="only-for-widescreens">
-        <Countdown
-          totalSeconds={properties.countdownSeconds}
-          shouldStop={gameOver}
-          size="small"
+      {gameOver ? (
+        <PopupBox
+          title="Game-Over"
+          buttonLabel="Play again"
+          onClick={() => setGameOver(false)}
         />
-      </div>
-      <div className="mid-container">
-        <GameQuestText level={level} enemyColors={enemyColors} />
-        <div className="mid-table-container">
-          <ManagedColorsTable
-            rows={properties.rows}
-            columns={properties.cols}
-            colors={properties.colors}
-            onChange={onChangeHandler}
+      ) : (
+        <>
+          <div className="only-for-widescreens">
+            <Countdown
+              totalSeconds={properties.countdownSeconds}
+              shouldStop={gameOver}
+              size="small"
+            />
+          </div>
+          <div className="mid-container">
+            <GameQuestText level={level} enemyColors={enemyColors} />
+            <div className="mid-table-container">
+              <ManagedColorsTable
+                rows={properties.rows}
+                columns={properties.cols}
+                colors={properties.colors}
+                onChange={onChangeHandler}
+              />
+            </div>
+            <div className="only-for-widescreens">
+              <Clock />
+            </div>
+          </div>
+          <Countdown
+            totalSeconds={properties.countdownSeconds}
+            onDone={onDoneHandler}
+            shouldStop={gameOver}
+            size="small"
           />
-        </div>
-        <div className="only-for-widescreens">
-          <Clock />
-        </div>
-      </div>
-      <Countdown
-        totalSeconds={properties.countdownSeconds}
-        onDone={onDoneHandler}
-        shouldStop={gameOver}
-        size="small"
-      />
+        </>
+      )}
     </div>
   ) : null;
 }
-
-export default ColorsGame;
