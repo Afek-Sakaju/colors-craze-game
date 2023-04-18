@@ -18,6 +18,8 @@ export default function ColorsGame() {
   const [enemyColors, setEnemyColors] = useState([]);
   const properties = getPropertiesByLevel(level);
   const prevLevel = useRef(level);
+  const isFinishedGame = useRef(false);
+
   const onChangeHandler = (colorsState) => {
     if (!enemyColors.length) {
       setEnemyColors(
@@ -36,7 +38,10 @@ export default function ColorsGame() {
         setEnemyColors([]);
         setTimeout(() =>
           setLevel(() => {
-            if (prevLevel.current === MAX_LEVEL) prevLevel.current = 0;
+            if (prevLevel.current === MAX_LEVEL) {
+              isFinishedGame.current = true;
+              prevLevel.current = 0;
+            } else isFinishedGame.current = false;
             return ++prevLevel.current;
           })
         );
@@ -57,7 +62,7 @@ export default function ColorsGame() {
     <div className="main-container">
       {isWinner || isLost ? (
         <GameOverPopup
-          isFinishedGame={isWinner && prevLevel.current + 1 === MAX_LEVEL}
+          isFinishedGame={isFinishedGame.current}
           isFinishedRound={isWinner}
           onButtonClick={() => {
             setIsWinner(false);
@@ -77,7 +82,6 @@ export default function ColorsGame() {
             <GameQuestText level={level} enemyColors={enemyColors} />
             <div className="mid-table-container">
               <ManagedColorsTable
-                allowRepeatedColors={false}
                 rows={properties.rows}
                 columns={properties.cols}
                 colors={properties.colors}
