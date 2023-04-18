@@ -12,7 +12,8 @@ import {
 import { Countdown } from "circular-countdown-react";
 
 export default function ColorsGame() {
-  const [gameOver, setGameOver] = useState(true);
+  const [isWinner, setIsWinner] = useState(false);
+  const [isLost, setIsLost] = useState(true);
   const [level, setLevel] = useState(1);
   const [enemyColors, setEnemyColors] = useState([]);
   const properties = getPropertiesByLevel(level);
@@ -39,7 +40,7 @@ export default function ColorsGame() {
             return ++prevLevel.current;
           })
         );
-        setGameOver(true);
+        setIsWinner(true);
       }
     }
   };
@@ -49,23 +50,26 @@ export default function ColorsGame() {
     setTimeout(() => setLevel(1));
     if (prevLevel.current === 1) prevLevel.current = 0;
     prevLevel.current = 1;
-    setGameOver(true);
+    setIsLost(true);
   };
 
   return level ? (
     <div className="main-container">
-      {gameOver ? (
+      {isWinner || isLost ? (
         <PopupBox
           title="Game-Over"
           buttonLabel="Play again"
-          onClick={() => setGameOver(false)}
+          onClick={() => {
+            setIsWinner(false);
+            setIsLost(false);
+          }}
         />
       ) : (
         <>
           <div className="only-for-widescreens">
             <Countdown
               totalSeconds={properties.countdownSeconds}
-              shouldStop={gameOver}
+              shouldStop={isWinner || isLost}
               size="small"
             />
           </div>
@@ -86,7 +90,7 @@ export default function ColorsGame() {
           <Countdown
             totalSeconds={properties.countdownSeconds}
             onDone={onDoneHandler}
-            shouldStop={gameOver}
+            shouldStop={isWinner || isLost}
             size="small"
           />
         </>
