@@ -1,23 +1,42 @@
 .popup-box {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  width: 700px;
+  width: 600px;
   height: 400px;
+  margin-bottom: 200px;
   gap: 90px;
-  border: 2px solid red;
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
+  box-shadow: -5px 5px 10px 1px rgba(black, 0.15);
+  background-color: rgba(white, 0.8);
 
   h1 {
-    font-size: 3em;
-    margin: 0 0 70px 0;
+    font-size: 3.5em;
+    margin-top: 15px;
+    background-image: linear-gradient(
+      to right,
+      rgba(red, 0.85),
+      rgba(orange, 0.85),
+      rgba(gold, 0.85),
+      rgba(green, 0.85),
+      rgba(blue, 0.85),
+      rgba(indigo, 0.85),
+      rgba(violet, 0.85)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
 .popup-box-button {
+  margin-top: 5px;
   padding: 20px;
-  font-size: 1.7em;
+  font-size: 1.5em;
+  font-weight: bold;
   border-radius: 10px;
   border: unset;
+  box-shadow: -5px 5px 10px 1px rgba(black, 0.15);
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
 }
