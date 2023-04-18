@@ -37,6 +37,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "circular-countdown-react": "^1.0.2",
+    "classnames": "^2.3.2",
     "colors-table-react": "^1.0.2",
     "craco-alias": "^3.0.1",
     "digital-clock-react": "^1.0.0",

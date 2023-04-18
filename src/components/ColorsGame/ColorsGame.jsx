@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-import PopupBox from "@components/PopupBox/PopupBox";
 import GameQuestText from "@components/GameQuestText/GameQuestText";
+import GameOverPopup from "@components/GameOverPopup/GameOverPopup";
 import { getPropertiesByLevel, MAX_LEVEL } from "@utils";
 import "./ColorsGame.scss";
 import { Clock } from "digital-clock-react";
@@ -13,7 +13,7 @@ import { Countdown } from "circular-countdown-react";
 
 export default function ColorsGame() {
   const [isWinner, setIsWinner] = useState(false);
-  const [isLost, setIsLost] = useState(true);
+  const [isLost, setIsLost] = useState(false);
   const [level, setLevel] = useState(1);
   const [enemyColors, setEnemyColors] = useState([]);
   const properties = getPropertiesByLevel(level);
@@ -56,10 +56,10 @@ export default function ColorsGame() {
   return level ? (
     <div className="main-container">
       {isWinner || isLost ? (
-        <PopupBox
-          title="Game-Over"
-          buttonLabel="Play again"
-          onClick={() => {
+        <GameOverPopup
+          isFinishedGame={isWinner && prevLevel.current + 1 === MAX_LEVEL}
+          isFinishedRound={isWinner}
+          onButtonClick={() => {
             setIsWinner(false);
             setIsLost(false);
           }}
@@ -77,6 +77,7 @@ export default function ColorsGame() {
             <GameQuestText level={level} enemyColors={enemyColors} />
             <div className="mid-table-container">
               <ManagedColorsTable
+                allowRepeatedColors={false}
                 rows={properties.rows}
                 columns={properties.cols}
                 colors={properties.colors}
