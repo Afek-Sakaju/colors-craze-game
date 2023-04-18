@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(176, 176, 176);
+  background-color: rgb(176, 176, 176,0.3);
 }
 
 .app-container {
