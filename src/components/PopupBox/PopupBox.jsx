@@ -8,7 +8,7 @@ export default function PopupBox({ title, buttonLabel, onClick }) {
     <div className="popup-box">
       {title ? <h1>{title}</h1> : null}
       <button onClick={onClick} type="button" className="popup-box-button">
-        {buttonLabel}
+        <p>{buttonLabel}</p>
       </button>
     </div>
   );

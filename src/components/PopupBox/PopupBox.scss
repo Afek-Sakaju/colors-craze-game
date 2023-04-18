@@ -10,33 +10,39 @@
   border-radius: 10px;
   box-shadow: -5px 5px 10px 1px rgba(black, 0.15);
   background-color: rgba(white, 0.8);
+  background-image: url("../../assets/images/color-splash.png");
+  background-size: cover;
 
   h1 {
     font-size: 3.5em;
     margin-top: 15px;
-    background-image: linear-gradient(
-      to right,
-      rgba(red, 0.85),
-      rgba(orange, 0.85),
-      rgba(gold, 0.85),
-      rgba(green, 0.85),
-      rgba(blue, 0.85),
-      rgba(indigo, 0.85),
-      rgba(violet, 0.85)
-    );
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 }
 
 .popup-box-button {
-  margin-top: 5px;
+  margin-top: 40px;
   padding: 20px;
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: bold;
   border-radius: 10px;
   border: unset;
   box-shadow: -5px 5px 10px 1px rgba(black, 0.15);
   background-color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
+
+  p {
+    margin: 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(red, 0.9),
+      rgba(orange, 0.9),
+      rgba(gold, 0.9),
+      rgba(green, 0.9),
+      rgba(blue, 0.9),
+      rgba(indigo, 0.9),
+      rgba(violet, 0.9)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
