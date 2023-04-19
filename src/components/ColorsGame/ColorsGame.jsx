@@ -82,7 +82,6 @@ export default function ColorsGame() {
             <GameQuestText level={level} enemyColors={enemyColors} />
             <div className="mid-table-container">
               <ManagedColorsTable
-                allowRepeatedColors={false}
                 rows={properties.rows}
                 columns={properties.cols}
                 colors={properties.colors}
