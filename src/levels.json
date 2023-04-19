@@ -1,36 +1,71 @@
 {
   "1": {
-    "rows": 4,
-    "cols": 4,
-    "colors": ["red", "blue", "green", "yellow", "pink", "blue"],
+    "rows": 2,
+    "cols": 2,
+    "colors": ["yellow", "pink", "cyan", "lime", "indigo"],
     "enemyColorsCount": 1,
     "countdownSeconds": 160
   },
   "2": {
-    "rows": 4,
-    "cols": 5,
-    "colors": ["red", "blue", "green", "yellow", "pink"],
-    "enemyColorsCount": 2,
-    "countdownSeconds": 140
+    "rows": 3,
+    "cols": 3,
+    "colors": ["yellow", "pink", "cyan", "lime", "indigo"],
+    "enemyColorsCount": 1,
+    "countdownSeconds": 150
   },
   "3": {
-    "rows": 5,
-    "cols": 5,
-    "colors": ["red", "blue", "green", "yellow"],
-    "enemyColorsCount": 3,
-    "countdownSeconds": 120
+    "rows": 4,
+    "cols": 3,
+    "colors": ["yellow", "pink", "cyan", "lime", "indigo"],
+    "enemyColorsCount": 1,
+    "countdownSeconds": 140
   },
   "4": {
+    "rows": 4,
+    "cols": 4,
+    "colors": ["red", "blue", "green", "yellow", "purple"],
+    "enemyColorsCount": 2,
+    "countdownSeconds": 130
+  },
+  "5": {
+    "rows": 4,
+    "cols": 4,
+    "colors": ["red", "blue", "green", "yellow", "purple"],
+    "enemyColorsCount": 2,
+    "countdownSeconds": 130
+  },
+  "6": {
+    "rows": 4,
+    "cols": 4,
+    "colors": ["red", "green", "yellow", "purple"],
+    "enemyColorsCount": 2,
+    "countdownSeconds": 120
+  },
+  "7": {
+    "rows": 5,
+    "cols": 5,
+    "colors": ["grey", "brown", "orange", "lightblue"],
+    "enemyColorsCount": 2,
+    "countdownSeconds": 110
+  },
+  "8": {
+    "rows": 5,
+    "cols": 5,
+    "colors": ["grey", "brown", "orange", "lightblue"],
+    "enemyColorsCount": 3,
+    "countdownSeconds": 100
+  },
+  "9": {
     "rows": 6,
     "cols": 6,
-    "colors": ["red", "blue", "green", "yellow"],
+    "colors": ["grey", "brown", "orange", "lightblue"],
     "enemyColorsCount": 3,
     "countdownSeconds": 90
   },
-  "5": {
-    "rows": 8,
-    "cols": 8,
-    "colors": ["red", "blue", "green", "yellow"],
+  "10": {
+    "rows": 7,
+    "cols": 7,
+    "colors": ["indigo", "maroon", "gold", "black"],
     "enemyColorsCount": 3,
     "countdownSeconds": 60
   }
