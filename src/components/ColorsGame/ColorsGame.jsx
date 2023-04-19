@@ -33,23 +33,33 @@ export default function ColorsGame() {
         (total, enemyColor) => total + (colorsState[enemyColor] ?? 0),
         0
       );
+
       if (totalEnemyRemaining === 0) {
-        setEnemyColors([]);
-        setLevel(() => {
-          if (prevLevel.current === MAX_LEVEL) {
-            isFinishedGame.current = true;
-            prevLevel.current = 0;
-          } else isFinishedGame.current = false;
-          return ++prevLevel.current;
+        /*  setTimeout - To fix Warning: Cannot update a component (`ColorsGame`)
+        while rendering a different component... */
+        setTimeout(() => {
+          setLevel(() => {
+            if (prevLevel.current === MAX_LEVEL) {
+              isFinishedGame.current = true;
+              prevLevel.current = 0;
+            } else isFinishedGame.current = false;
+            return ++prevLevel.current;
+          });
+
+          setEnemyColors([]);
+          setIsWinner(true);
         });
-        setIsWinner(true);
       }
     }
   };
   const onDoneHandler = () => {
-    setEnemyColors([]);
-    setLevel(1);
-    setIsLost(true);
+    /*  setTimeout - To fix Warning: Cannot update a component (`ColorsGame`)
+    while rendering a different component... */
+    setTimeout(() => {
+      setLevel(1);
+      setEnemyColors([]);
+      setIsLost(true);
+    });
   };
 
   return (
