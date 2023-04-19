@@ -36,7 +36,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "circular-countdown-react": "^1.0.2",
+    "circular-countdown-react": "^1.0.6",
     "classnames": "^2.3.2",
     "colors-table-react": "^1.0.2",
     "craco-alias": "^3.0.1",
@@ -46,6 +46,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
