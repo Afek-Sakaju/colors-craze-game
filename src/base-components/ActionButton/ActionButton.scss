@@ -1,4 +1,5 @@
 .action-button {
+  padding: 20px;
   font-weight: bold;
   border: unset;
   border-radius: 10px;
@@ -8,6 +9,7 @@
 
   p {
     margin: 0;
+    font-size: 1.8em;
   }
 
   &:hover {
@@ -28,6 +30,22 @@
       );
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    padding: 18px;
+
+    p {
+      font-size: 1.4em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 17px;
+
+    p {
+      font-size: 1.2em;
     }
   }
 }
