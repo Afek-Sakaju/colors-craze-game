@@ -34,31 +34,25 @@ export default function ColorsGame() {
         0
       );
       if (totalEnemyRemaining === 0) {
-        setLevel(0);
         setEnemyColors([]);
-        setTimeout(() =>
-          setLevel(() => {
-            if (prevLevel.current === MAX_LEVEL) {
-              isFinishedGame.current = true;
-              prevLevel.current = 0;
-            } else isFinishedGame.current = false;
-            return ++prevLevel.current;
-          })
-        );
+        setLevel(() => {
+          if (prevLevel.current === MAX_LEVEL) {
+            isFinishedGame.current = true;
+            prevLevel.current = 0;
+          } else isFinishedGame.current = false;
+          return ++prevLevel.current;
+        });
         setIsWinner(true);
       }
     }
   };
   const onDoneHandler = () => {
-    setLevel(0);
     setEnemyColors([]);
-    setTimeout(() => setLevel(1));
-    if (prevLevel.current === 1) prevLevel.current = 0;
-    prevLevel.current = 1;
+    setLevel(1);
     setIsLost(true);
   };
 
-  return level ? (
+  return (
     <div className="main-container">
       {isWinner || isLost ? (
         <GameOverPopup
@@ -101,5 +95,5 @@ export default function ColorsGame() {
         </>
       )}
     </div>
-  ) : null;
+  );
 }
