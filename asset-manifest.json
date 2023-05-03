@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/color-clearing-game/static/css/main.9d6cd292.css",
-    "main.js": "/color-clearing-game/static/js/main.3698b087.js",
+    "main.css": "/color-clearing-game/static/css/main.405deaab.css",
+    "main.js": "/color-clearing-game/static/js/main.508be1ed.js",
     "static/media/color-splash.png": "/color-clearing-game/static/media/color-splash.4eac6df8226d8e72a264.png",
     "index.html": "/color-clearing-game/index.html",
-    "main.9d6cd292.css.map": "/color-clearing-game/static/css/main.9d6cd292.css.map",
-    "main.3698b087.js.map": "/color-clearing-game/static/js/main.3698b087.js.map"
+    "main.405deaab.css.map": "/color-clearing-game/static/css/main.405deaab.css.map",
+    "main.508be1ed.js.map": "/color-clearing-game/static/js/main.508be1ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d6cd292.css",
-    "static/js/main.3698b087.js"
+    "static/css/main.405deaab.css",
+    "static/js/main.508be1ed.js"
   ]
 }
