@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/color-clearing-game/static/css/main.405deaab.css",
-    "main.js": "/color-clearing-game/static/js/main.508be1ed.js",
-    "static/media/color-splash.png": "/color-clearing-game/static/media/color-splash.4eac6df8226d8e72a264.png",
-    "index.html": "/color-clearing-game/index.html",
-    "main.405deaab.css.map": "/color-clearing-game/static/css/main.405deaab.css.map",
-    "main.508be1ed.js.map": "/color-clearing-game/static/js/main.508be1ed.js.map"
+    "main.css": "/Colors-Craze-Game/static/css/main.773422fc.css",
+    "main.js": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js",
+    "static/media/color-splash.png": "/Colors-Craze-Game/static/media/color-splash.4eac6df8226d8e72a264.png",
+    "index.html": "/Colors-Craze-Game/index.html",
+    "main.773422fc.css.map": "/Colors-Craze-Game/static/css/main.773422fc.css.map",
+    "main.aa8d8e1c.js.map": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js.map"
   },
   "entrypoints": [
-    "static/css/main.405deaab.css",
-    "static/js/main.508be1ed.js"
+    "static/css/main.773422fc.css",
+    "static/js/main.aa8d8e1c.js"
   ]
 }
