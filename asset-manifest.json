@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Colors-Craze-Game/static/css/main.d958670d.css",
+    "main.css": "/Colors-Craze-Game/static/css/main.e8418d2b.css",
     "main.js": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js",
-    "static/media/color-splash.png": "/Colors-Craze-Game/static/media/color-splash.4eac6df8226d8e72a264.png",
+    "static/media/color-splash.png": "/Colors-Craze-Game/static/media/color-splash.aec0c42a6ff5bde64f01.png",
     "index.html": "/Colors-Craze-Game/index.html",
-    "main.d958670d.css.map": "/Colors-Craze-Game/static/css/main.d958670d.css.map",
+    "main.e8418d2b.css.map": "/Colors-Craze-Game/static/css/main.e8418d2b.css.map",
     "main.aa8d8e1c.js.map": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d958670d.css",
+    "static/css/main.e8418d2b.css",
     "static/js/main.aa8d8e1c.js"
   ]
 }
