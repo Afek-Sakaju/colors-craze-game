@@ -8,7 +8,7 @@
 
 ---
 
-**Live demo:**</br>[Colors-Craze-Game](http://afektheminilearner.github.io/Colors-Craze-Game)
+**Live demo:**</br>[colors-craze-game](http://afektheminilearner.github.io/colors-craze-game)
 
 **Installation:**</br>
 _`npm install`_
@@ -31,9 +31,9 @@ run the following command on your terminal:</br> _`npm run build-jsdocs`_</br>th
 
 ### This project has been developed using ReactJS, JavaScript, SASS/CSS, ESLINT.<br />The project is adapted using media queries to also fit smaller screens. <br />Iv'e also imported my other components that have been published as NPM packages for improved efficiency and easier updates:
 
--   **Colors Table:** Generates a dynamic game board filled with colors.
--   **Digital clock:** Displays the current time in a digital format.
--   **Circular countdown:** Shows the remaining time for the current level in a circular progress bar.
+- **Colors Table:** Generates a dynamic game board filled with colors.
+- **Digital clock:** Displays the current time in a digital format.
+- **Circular countdown:** Shows the remaining time for the current level in a circular progress bar.
 
 ---
 
@@ -41,5 +41,5 @@ run the following command on your terminal:</br> _`npm run build-jsdocs`_</br>th
 
 :octocat: **Afek Sakaju**
 
--   LinkedIn: [@afeksa](https://www.linkedin.com/in/afeksa/)
--   GitHub: [@afekTheMiniLearner](https://github.com/afekTheMiniLearner)
+- LinkedIn: [@afeksa](https://www.linkedin.com/in/afeksa/)
+- GitHub: [@afekTheMiniLearner](https://github.com/afekTheMiniLearner)
