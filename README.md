@@ -2,7 +2,7 @@
 
 ## Overview
 
-<img src="./readme-resources/game.png" width=30px height=30px align="right">
+<img src="./readme-resources/game.png" width=50px height=50px align="right">
 
 ### This project offers an exciting game where you eliminate enemy colors from a table full of colors. Each level has unique enemy colors that you must clear by changing square colors. Just click on an item to change its color and clear all enemies to progress! <img src="./readme-resources/colors.png" width=130px height=130px align="right"><br />
 
