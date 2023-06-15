@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Colors-Craze-Game/static/css/main.e8418d2b.css",
-    "main.js": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js",
-    "static/media/color-splash.png": "/Colors-Craze-Game/static/media/color-splash.aec0c42a6ff5bde64f01.png",
-    "index.html": "/Colors-Craze-Game/index.html",
-    "main.e8418d2b.css.map": "/Colors-Craze-Game/static/css/main.e8418d2b.css.map",
-    "main.aa8d8e1c.js.map": "/Colors-Craze-Game/static/js/main.aa8d8e1c.js.map"
+    "main.css": "/colors-craze-game/static/css/main.0f087e26.css",
+    "main.js": "/colors-craze-game/static/js/main.0347be9e.js",
+    "static/media/color-splash.png": "/colors-craze-game/static/media/color-splash.aec0c42a6ff5bde64f01.png",
+    "index.html": "/colors-craze-game/index.html",
+    "main.0f087e26.css.map": "/colors-craze-game/static/css/main.0f087e26.css.map",
+    "main.0347be9e.js.map": "/colors-craze-game/static/js/main.0347be9e.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8418d2b.css",
-    "static/js/main.aa8d8e1c.js"
+    "static/css/main.0f087e26.css",
+    "static/js/main.0347be9e.js"
   ]
 }
