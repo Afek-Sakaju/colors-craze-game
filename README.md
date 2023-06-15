@@ -2,38 +2,43 @@
 
 ## Overview
 
-### Color Clearing Game is a fun and challenging game where you clear enemy colors from a table full of colors. Each level features a different set of enemy colors that you must clear by changing the color of squares on the table. To change a item's color, simply click on it, and it will regenerate a new color. The goal is to clear all the enemy colors from the table to advance to the next level. <br />
+### This project offers an exciting game where you eliminate enemy colors from a table full of colors. Each level has unique enemy colors that you must clear by changing square colors. Just click on an item to change its color and clear all enemies to progress! <br />
 
-<img src="./readme-resources/game.png" width=150px height=150px align="right">
+<img src="./readme-resources/colors.png" width=130px height=130px align="center">
+<img src="./readme-resources/game.png" width=100px height=100px align="right">
 
 ---
 
 **Live demo:**</br>[colors-craze-game](http://afektheminilearner.github.io/colors-craze-game)
 
-**Installation:**</br>
-_`npm install`_
+**Command lines:**
 
-**Running the project:**</br>
-_`npm run start`_
+- `npm install` <br /> Install all the necessary packages for running and developing the project.
+- `npm run start`<br /> For running the project (with craco).
 
-**(optional) Testing the utils function with js-docs:**</br>
-run the following command on your terminal:</br> _`npm run build-jsdocs`_</br>then open the 'index.html' file inside the folder 'js-docs'.
+- `npm run build-jsdocs`<br />For JSDocs,after running open the 'index.html' file located inside the 'js-docs' folder.
 
 ---
 
-### **Example of playing the game:**
+### **Experience the game in action:**
 
 ![Example-GIF](./readme-resources/game-gif.gif)
 
 ---
 
-### **Technology**
+### The technologies used in this project include:
 
-### This project has been developed using ReactJS, JavaScript, SASS/CSS, ESLINT.<br />The project is adapted using media queries to also fit smaller screens. <br />Iv'e also imported my other components that have been published as NPM packages for improved efficiency and easier updates:
+- [x] _**ReactJS**_ : the project is built on the _ReactJS_ framework.
+- [x] _**SASS**_ : the project's style is implemented using _SCSS_.
+- [x] _**ESLINT**_ : the project adheres to the _ESLint_ guidelines and follows the best practices recommended by _airbnb_.
 
-- **Colors Table:** Generates a dynamic game board filled with colors.
-- **Digital clock:** Displays the current time in a digital format.
-- **Circular countdown:** Shows the remaining time for the current level in a circular progress bar.
+### Additional technologies used as development tools include:
+
+- [x] _**Media-query**_ : _media queries_ have been employed to ensure compatibility with smaller screens.
+- [x] _**Custom NPM packages**_ : the project incorporates custom NPM packages developed by me, aiming to enhance efficiency and facilitate easier updates, the packages are:
+  - [x] **Colors-table** : generates a dynamic game board filled with colors.
+  - [x] **Countdown** : a circular progress bar is implemented to display the remaining time for the current level.
+  - [x] **Digital-clock** : in a digital format, the current time is displayed.
 
 ---
 
