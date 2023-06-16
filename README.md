@@ -14,7 +14,6 @@
 
 - `npm install` <br /> Install all the necessary packages for running and developing the project.
 - `npm run start`<br /> For running the project (with craco).
-
 - `npm run build-jsdocs`<br />For JSDocs,after running open the 'index.html' file located inside the 'js-docs' folder.
 
 ---
