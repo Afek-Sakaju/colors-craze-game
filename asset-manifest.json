@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/colors-craze-game/static/css/main.0f087e26.css",
+    "main.css": "/colors-craze-game/static/css/main.3c1bcb2b.css",
     "main.js": "/colors-craze-game/static/js/main.0347be9e.js",
     "static/media/color-splash.png": "/colors-craze-game/static/media/color-splash.aec0c42a6ff5bde64f01.png",
     "index.html": "/colors-craze-game/index.html",
-    "main.0f087e26.css.map": "/colors-craze-game/static/css/main.0f087e26.css.map",
+    "main.3c1bcb2b.css.map": "/colors-craze-game/static/css/main.3c1bcb2b.css.map",
     "main.0347be9e.js.map": "/colors-craze-game/static/js/main.0347be9e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f087e26.css",
+    "static/css/main.3c1bcb2b.css",
     "static/js/main.0347be9e.js"
   ]
 }
