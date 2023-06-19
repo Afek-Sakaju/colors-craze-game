@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 
 import GameQuestText from "@components/GameQuestText/GameQuestText";
 import GameOverPopup from "@components/GameOverPopup/GameOverPopup";
-import { getPropertiesByLevel, MAX_LEVEL } from "@utils";
+import { getPropertiesByLevel, getMaxLevel } from "@utils";
 import "./ColorsGame.scss";
 import { Clock } from "digital-clock-react";
 import {
@@ -19,6 +19,7 @@ export default function ColorsGame() {
   const properties = getPropertiesByLevel(level);
   const prevLevel = useRef(level);
   const isFinishedGame = useRef(false);
+  const maxLevel = getMaxLevel();
 
   const onChangeHandler = (colorsState) => {
     if (!enemyColors.length) {
@@ -39,7 +40,7 @@ export default function ColorsGame() {
         while rendering a different component... */
         setTimeout(() => {
           setLevel(() => {
-            if (prevLevel.current === MAX_LEVEL) {
+            if (prevLevel.current === maxLevel) {
               isFinishedGame.current = true;
               prevLevel.current = 0;
             } else isFinishedGame.current = false;
@@ -90,6 +91,7 @@ export default function ColorsGame() {
                 columns={properties.cols}
                 colors={properties.colors}
                 onChange={onChangeHandler}
+                allowRepeatedColors={properties.allowRepeatedColors}
               />
             </div>
             <div className="only-for-widescreens">

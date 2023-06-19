@@ -1,4 +1,4 @@
-import LEVELS from "../levels.json";
+import LEVELS from "./levels";
 
 /**
  *
@@ -22,3 +22,5 @@ export const getRandomNumber = (min = 0, max = 10000) => {
 export function getPropertiesByLevel(level) {
   return LEVELS[level];
 }
+
+export const getMaxLevel = () => Object.keys(LEVELS).length;
