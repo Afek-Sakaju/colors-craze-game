@@ -28,11 +28,11 @@
 
 - [x] _**ReactJS**_ : the project is built on the _ReactJS_ framework.
 - [x] _**SASS**_ : the project's style is implemented using _SCSS_.
-- [x] _**ESLINT**_ : the project adheres to the _ESLint_ guidelines and follows the best practices recommended by _airbnb_.
+- [x] _**Media-query**_ : _media queries_ have been employed to ensure compatibility with smaller screens.
 
 ### Additional technologies used as development tools include:
 
-- [x] _**Media-query**_ : _media queries_ have been employed to ensure compatibility with smaller screens.
+- [x] _**ESLINT**_ : the project adheres to the _ESLint_ guidelines and follows the best practices recommended by _airbnb_.
 - [x] _**Custom NPM packages**_ : the project incorporates custom NPM packages developed by me, aiming to enhance efficiency and facilitate easier updates, the packages are:
   - [x] **Colors-table** : generates a dynamic game board filled with colors.
   - [x] **Countdown** : a circular progress bar is implemented to display the remaining time for the current level.
