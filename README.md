@@ -10,6 +10,14 @@
 
 **Live demo:**</br>[colors-craze-game](http://afektheminilearner.github.io/colors-craze-game)
 
+---
+
+### **Running the project :**
+
+**Requirements**
+
+- _NodeJS_ version 16.4+
+
 **Command lines:**
 
 - `npm install` <br /> Install all the necessary packages for running and developing the project.
