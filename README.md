@@ -12,10 +12,6 @@
 
 ---
 
-**Requirements**
-
-- _NodeJS_ version 16.4+
-
 **Command lines:**
 
 - `npm install` <br /> Install all the necessary packages for running and developing the project.
