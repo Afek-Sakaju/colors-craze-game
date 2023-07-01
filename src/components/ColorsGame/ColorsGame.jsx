@@ -60,6 +60,7 @@ export default function ColorsGame() {
       setLevel(1);
       setEnemyColors([]);
       setIsLost(true);
+      prevLevel.current = 1;
     });
   };
 
