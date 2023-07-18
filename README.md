@@ -8,7 +8,7 @@
 
 ---
 
-**Live demo:**</br>[colors-craze-game](http://afektheminilearner.github.io/colors-craze-game)
+**Live demo:**</br>[colors-craze-game](http://Afek-Sakaju.github.io/colors-craze-game)
 
 ---
 
