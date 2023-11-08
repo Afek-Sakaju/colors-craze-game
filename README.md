@@ -22,7 +22,7 @@
 
 ### **Experience the game in action:**
 
-![Example-GIF](./readme-resources/game-gif.gif)
+https://github.com/Afek-Sakaju/colors-craze-game/assets/100536372/ab940599-c384-492d-9893-a3a5b22f63fd
 
 ---
 
